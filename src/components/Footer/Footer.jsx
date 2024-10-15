@@ -8,7 +8,7 @@ export default function Footer() {
     return (
         <div className='footer'>
             <div className="footer__logo">
-                <img className="footer__logo-img" src={PortfolioLogo} />
+                <img className="footer__logo-img" src={PortfolioLogo} alt="website logo" />
             </div>
             <div className="footer__social">
                 <a className="footer__social-link" href="mailto:blikebahar76@gmail.com" target="_blank">
