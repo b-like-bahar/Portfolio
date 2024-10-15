@@ -24,16 +24,11 @@
     font-display: swap;
 }
 
-body {
+* {
     font-family: 'Raleway', Helvetica, Arial, sans-serif;
     font-weight: 500;
-    font-size: 1rem;
+    font-size: 1.125rem;
     line-height: 1.5rem;
-
-    @include tablet {
-        font-size: 1.125rem;
-        line-height: 1.75rem;
-    }
 }
 
 h1 {
