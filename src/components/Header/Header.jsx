@@ -38,20 +38,22 @@ const Header = () => {
         <header className="header">
             <div className="header__logo">
                 <img className="header__logo-img" src={PortfolioLogo} alt="website logo" />
-            </div>  
+            </div>
             <div className="header__lines" onClick={toggleMenu}>
                 <span className="header__lines-line"></span>
                 <span className="header__lines-line"></span>
                 <span className="header__lines-line"></span>
             </div>
             <nav ref={navRef} className={`header__nav ${isMenuOpen ? 'open' : ''}`}>
-                <ReactSVG className="header__nav-close" src={CloseIcon} onClick={closeMenu}/>
+                <div className="header__nav-icon">
+                    <ReactSVG className="header__nav-icon-close" src={CloseIcon} onClick={closeMenu} />
+                </div>
                 <ul>
-                    <li><a href="#home">home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#home" className='bold'>Home</a></li>
+                    <li><a href="#about" className='bold'>About</a></li>
+                    <li><a href="#projects" className='bold'>Projects</a></li>
+                    <li><a href="#skills" className='bold'>Skills</a></li>
+                    <li><a href="#contact" className='bold'>Contact</a></li>
                 </ul>
                 <button className="header__nav-resume">Resume</button>
             </nav>
