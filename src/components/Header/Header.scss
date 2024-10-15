@@ -1,0 +1,115 @@
+@import "../../styles/global.scss";
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 1rem;
+    background-color: rgb(209, 236, 251);
+    // background-color: $secondary-background-color;
+    width: 100%;
+    height: 10vh;
+    @include tablet {
+        padding: 3rem 1rem;
+    }
+
+    &__logo {
+        display: flex;
+        &-img {
+            width: 4.5rem;
+            @include tablet {
+                width: 5rem;
+            }
+        }
+    }
+    &__lines {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        &:hover {
+            opacity: 70%;
+        }
+
+        &-line {
+            width: 25px;
+            height: 2px;
+            background-color: $primary-text-color;
+            margin: 4px 0;
+        }
+
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &__nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100%;
+        background-color: $white;
+        transition: right 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 1.5rem;
+
+        @include tablet {
+            position: static;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+            background-color: $secondary-background-color;
+        }
+        &.open {
+            right: 0;
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            list-style-type: none;
+
+            li {
+                display: inline;
+
+                a {
+                    text-decoration: none;
+                    color: #000;
+                }
+            }
+
+            @include tablet {
+                flex-direction: row;
+                gap: 20px;
+            }
+        }
+
+        &-close svg {
+            @include tablet {
+                display: none;
+            }
+        }
+
+        &__resume {
+            background-color: transparent;
+            border: 1px solid #5a0;
+            padding: 8px 16px;
+            color: #5a0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: #5a0;
+                color: white;
+            }
+
+            @include tablet {
+                margin-left: 20px;
+            }
+        }
+    }
+}
