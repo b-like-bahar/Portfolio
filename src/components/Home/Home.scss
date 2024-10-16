@@ -1,0 +1,42 @@
+@import "../../styles/global.scss";
+.home {
+    color: $primary-text-color;
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    @include tablet {
+        padding: 3rem 5rem;
+        gap: 1rem;
+    }
+    &__start{
+        color: $secondary-text-color;
+    }
+    &__name{
+        color: $primary-text-color;
+    }
+    &__typing {
+        height: 40px;
+    }
+    &__social {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+        @include tablet{
+            gap: 1.5rem;
+        }
+
+        &-link {
+            cursor: pointer;
+            &-img {
+                width: 1.875rem;
+                @include tablet{
+                    width: 2.5rem;
+                }
+            }
+        }
+    }
+}
