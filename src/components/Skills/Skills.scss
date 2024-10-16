@@ -1,0 +1,19 @@
+@import "../../styles/global.scss";
+.skills{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); // Or adjust based on the number of skills
+    gap: 20px;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    &__item{
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        &-icon svg{
+            width: 30px;
+            height: 30px;
+        }
+    }
+}
