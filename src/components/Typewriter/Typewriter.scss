@@ -1,0 +1,8 @@
+@import "../../styles/global.scss";
+
+.typewrite > .wrap {
+    border-right: 0.08em solid $secondary-text-color ;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+}
