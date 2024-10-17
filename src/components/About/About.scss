@@ -1,0 +1,64 @@
+@import "../../styles/global.scss";
+
+.about {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: $primary-text-color;
+    padding: 0rem 1rem;
+
+    @include tablet {
+        padding: 3rem 5rem;
+    }
+
+    &__title {
+        padding-bottom: 1.5rem;
+
+        @include tablet {
+            padding-bottom: 2rem;
+        }
+
+        @include desktop {
+            padding-bottom: 3rem;
+        }
+    }
+
+    &__component {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        @media (min-width : 1000px) {
+            flex-direction: row-reverse;
+        }
+        @include desktop {
+            padding: 0rem 7rem 3rem 7rem;
+        }
+        &-image {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 260px;
+            height: 260px;
+            margin-bottom: 1.5rem;
+            flex: 1;
+            @include tablet {
+                width: 50vw;
+            }
+            &-item{
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, .7);
+                width: 350px;
+                height: 350px;
+                flex: 1;
+            }
+        }
+        &-description{
+            flex: 1;
+        }
+
+    }
+}
