@@ -29,8 +29,19 @@
     font-weight: 500;
     font-size: 1.125rem;
     line-height: 1.5rem;
+
+    .small {
+        font-size: 0.875rem;
+    }
+
     .bold {
         font-weight: 800;
+    }
+
+    @include tablet {
+        .small {
+            font-size: 1rem;
+        }
     }
 }
 
@@ -61,6 +72,7 @@ h3 {
         line-height: 2.5rem;
     }
 }
+
 input::placeholder {
     font-family: 'Raleway', Helvetica, Arial, sans-serif;
 }
