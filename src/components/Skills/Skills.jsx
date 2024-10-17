@@ -18,7 +18,7 @@ import "./Skills.scss";
 function Skills() {
     return (
         <div className="skills">
-            <h2 className="skills__title bold">Skills</h2>
+            <h2 className="skills__title">Skills</h2>
             <div className="skills__component">
                 <div className="skills__component-item">
                     <ReactSVG className="skills__component-item-icon" src={htmlIcon} />
