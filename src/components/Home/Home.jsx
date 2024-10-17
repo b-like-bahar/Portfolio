@@ -5,7 +5,7 @@ import './Home.scss';
 
 function Home() {
     return (
-        <section className="home">
+        <section className="home" id="home">
             <p className="home__start">Hi, I'm</p>
             <h1 className="home__name">
                 Bahareh Hamzeh
