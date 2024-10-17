@@ -1,19 +1,75 @@
 @import "../../styles/global.scss";
 .skills{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); // Or adjust based on the number of skills
-    gap: 20px;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     padding: 1.5rem 1rem;
-    &__item{
-        height: 100px;
-        display: flex;
-        flex-direction: column;
+    @include tablet {
+        padding: 3rem 5rem;
+    }
+    &__title {
+        color: $primary-text-color;
+        padding-bottom: 1.5rem;
+        @include tablet {
+            padding-bottom: 2rem;
+        }
+        @include desktop{
+            padding-bottom: 3rem;
+        }
+    }
+    &__component {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        text-align: center;
         justify-content: center;
-        align-items: center;
-        &-icon svg{
-            width: 30px;
-            height: 30px;
+        @media (min-width:520px) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        @include tablet {
+            grid-template-columns: repeat(5, 1fr);
+            padding-bottom: 3rem;
+        }
+        @media (min-width:850px) {
+            grid-template-columns: repeat(7, 1fr);
+        }
+        @include desktop {
+            padding: 0rem 15rem 3rem 15rem;
+        }
+        &-item{
+            height: 100px;
+            width: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            &-icon svg{
+                width: 30px;
+                height: 30px;
+                fill: $primary-text-color;
+                @include tablet {
+                    width: 35px;
+                    height: 35px;
+                }
+            }
+            &-text{
+                min-height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: $primary-text-color;
+            }
+        }
+    }
+    &__sentence{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+        width: 100%;
+        padding: 1rem 0rem;
+        &-text{
+            color: $primary-text-color;
         }
     }
 }
