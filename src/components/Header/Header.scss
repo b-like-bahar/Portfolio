@@ -54,6 +54,7 @@
         justify-content: flex-start;
         align-items: center;
         padding: 1rem;
+        z-index: 1;
 
         @include tablet {
             position: static;
