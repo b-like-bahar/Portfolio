@@ -7,12 +7,27 @@
     align-items: center;
     gap: 1rem;
     background-color: $secondary-background-color;
-    padding: 1rem 3rem;
+    padding: 17rem 3rem 1rem 3rem;
+    height: auto;
+    position: relative;
+    z-index: 1;
+    @media (min-width:330px){
+        padding-top: 16rem
+    }
+    @media (min-width:355px){
+        padding-top: 15rem
+    }
+    @media (min-width:445px){
+        padding-top: 14rem
+    }    
+    @media (min-width:610px){
+        padding-top: 13rem
+    }
     @include tablet{
-        padding: 1rem 5rem;
+        padding-top: 12rem;
     }
     @include desktop{
-        padding: 1rem 7rem;
+        padding-top: 11rem;
     }
 
     &__logo {
@@ -21,10 +36,10 @@
         cursor: pointer;
 
         &-img {
-            width: 6rem;
+            width: 4.5rem;
 
             @include tablet {
-                width: 9rem;
+                width: 5rem;
             }
         }
     }
@@ -36,7 +51,7 @@
         align-items: center;
         gap: 1rem;
         padding-bottom: 1rem;
-        border-bottom: $border-color solid .0625rem;
+        border-bottom: $primary-border-color solid .0625rem;
         width: 100%;
         @include tablet{
             gap: 1.5rem;
