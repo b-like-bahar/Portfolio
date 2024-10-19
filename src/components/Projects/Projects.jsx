@@ -2,7 +2,7 @@ import "./Projects.scss";
 
 function Projects() {
     return (
-        <div className="projects">
+        <div className="projects" id="projects">
             <h2 className="projects__title">Projects</h2>
             <div className="projects__component">
                 <div className="projects__component-item">
