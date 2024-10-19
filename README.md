@@ -1,6 +1,6 @@
 # Portfolio Project – Frontend Web Application
 
-This is a frontend project built with JavaScript, React.js and Sass, . Below are the instructions to set up and run the project on your local machine.
+This is a frontend project built with JavaScript, React.js and Sass. Below are the instructions to set up and run the project on your local machine.
 
 ## Getting Started
 
