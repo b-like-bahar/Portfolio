@@ -1,11 +1,13 @@
 import { Typewriter } from '../Typewriter/Typewriter.jsx';
 import githubIcon from "../../assets/icons/github.svg";
 import linkedinIcon from "../../assets/icons/linkedin.svg";
+import ParticlesBg from "../ParticlesBg/ParticlesBg.jsx";
 import './Home.scss';
 
 function Home() {
     return (
         <section className="home" id="home">
+        <ParticlesBg/>
             <p className="home__start">Hi, I'm</p>
             <h1 className="home__name">
                 Bahareh Hamzeh
