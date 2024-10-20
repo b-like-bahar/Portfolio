@@ -1,23 +1,33 @@
 @import "../../styles/global.scss";
+
 .home {
     color: $primary-text-color;
-    padding: 1.5rem 1rem;
+    padding: 3rem 1rem 3rem 1rem;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    position: relative;
+    width: 100%;
     @include tablet {
-        padding: 3rem 5rem;
+        padding: 10rem 5rem;
         gap: 1rem;
     }
-    &__start{
+    @include desktop{
+        padding: 12rem 5rem;
+    }
+
+    &__start {
         color: $secondary-text-color;
     }
-    &__name{
+
+    &__name {
         color: $primary-text-color;
     }
+
     &__typing {
         height: 40px;
     }
+
     &__social {
         display: flex;
         flex-direction: row;
@@ -25,15 +35,18 @@
         align-items: center;
         gap: 1rem;
         width: 100%;
-        @include tablet{
+
+        @include tablet {
             gap: 1.5rem;
         }
 
         &-link {
             cursor: pointer;
+
             &-img {
                 width: 1.875rem;
-                @include tablet{
+
+                @include tablet {
                     width: 2.5rem;
                 }
             }
