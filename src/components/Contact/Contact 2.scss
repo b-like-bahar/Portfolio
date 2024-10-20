@@ -1,0 +1,47 @@
+@import "../../styles/global.scss";
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $primary-text-color;
+    color: $white;
+    border-radius: .5rem;
+    width: 90%;
+    position: absolute;
+    top: -15%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2rem;
+    z-index: 2;
+
+    @include tablet {
+        
+    }
+
+    &__title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    &__text {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    &__button {
+        border: $secondary-border-color solid .0625rem;
+        padding: 0.75rem 1rem;
+        border-radius: 0.5rem;
+        color: $white;
+        font-size: 1rem;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: $secondary-background-color;
+            color: $primary-text-color; 
+        }
+    }
+}
