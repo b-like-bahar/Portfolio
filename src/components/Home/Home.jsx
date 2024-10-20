@@ -1,6 +1,6 @@
 import { Typewriter } from '../Typewriter/Typewriter.jsx';
-import githubIcon from "../../assets/icons/github.svg";
-import linkedinIcon from "../../assets/icons/linkedin.svg";
+import githubIcon from "../../assets/icons/github-home.svg";
+import linkedinIcon from "../../assets/icons/linkedin-home.svg";
 import ParticlesBg from "../ParticlesBg/ParticlesBg.jsx";
 import './Home.scss';
 
