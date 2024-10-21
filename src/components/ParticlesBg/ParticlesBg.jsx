@@ -30,6 +30,7 @@ const ParticlesBg = () => {
             },
             fpsLimit: 120,
             interactivity: {
+                detectOn: "canvas", 
                 events: {
                     onClick: {
                         enable: true,
@@ -37,10 +38,16 @@ const ParticlesBg = () => {
                     },
                     onHover: {
                         enable: true,
-                        mode: "repulse",
+                        mode: "grab",
                     },
                 },
                 modes: {
+                    grab: {
+                        distance: 200,
+                        links: {
+                            opacity: 0.7,
+                        },
+                    },
                     push: {
                         quantity: 4,
                     },
@@ -84,7 +91,7 @@ const ParticlesBg = () => {
                     type: "circle",
                 },
                 size: {
-                    value: { min: 1, max: 5 },
+                    value: { min: 1, max: 3 },
                 },
             },
             detectRetina: true,
@@ -94,13 +101,18 @@ const ParticlesBg = () => {
 
     if (init) {
         return (
-            <Particles
-                id="tsparticles"
-                particlesLoaded={particlesLoaded}
-                options={options}
-            />
+            <div className="particles-container">
+                <Particles
+                    id="tsparticles"
+                    particlesLoaded={particlesLoaded}
+                    options={options}
+                />
+            </div>
         );
     }
+
+    return null;
 };
 
 export default ParticlesBg;
+
