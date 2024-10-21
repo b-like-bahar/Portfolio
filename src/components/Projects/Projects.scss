@@ -8,11 +8,11 @@
     padding: 1rem;
 
     @include tablet {
-        padding: 3rem 2rem;
+        padding: 1.5rem 2rem;
     }
 
     @media (min-width:1000px) {
-        padding: 3rem 5rem;
+        padding: 1.5rem 5rem;
     }
 
     &__component {
