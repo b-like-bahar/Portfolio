@@ -55,7 +55,7 @@ const Header = () => {
                     <li><a href="#skills" className='bold'>Skills</a></li>
                     <li><a href="#contact" className='bold'>Contact</a></li>
                 </ul>
-                <a className="header__nav-resume" href="https://drive.google.com/file/d/1sVxBRzVHzYERA8GlcEvf_7rW_0x4KCck/view?usp=drivesdk" target="_blank">Resume</a>
+                <a className="header__nav-resume" href="https://drive.google.com/file/d/1uJALKyFDAEOSzPqzUl2BRfCv1bBXupii/view?usp=sharing" target="_blank">Resume</a>
             </nav>
         </header>
     );
