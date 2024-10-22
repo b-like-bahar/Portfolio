@@ -82,7 +82,7 @@ const ParticlesBg = () => {
                     density: {
                         enable: true,
                     },
-                    value: 80,
+                    value: 150,
                 },
                 opacity: {
                     value: 0.5,
