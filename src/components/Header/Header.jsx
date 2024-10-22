@@ -49,11 +49,11 @@ const Header = () => {
                     <ReactSVG className="header__nav-icon-close" src={CloseIcon} onClick={closeMenu} />
                 </div>
                 <ul>
-                    <li><a href="#home" className='bold'>Home</a></li>
-                    <li><a href="#about" className='bold'>About</a></li>
-                    <li><a href="#projects" className='bold'>Projects</a></li>
-                    <li><a href="#skills" className='bold'>Skills</a></li>
-                    <li><a href="#contact" className='bold'>Contact</a></li>
+                    <li><a href="#home" className='bold' onClick={closeMenu}>Home</a></li>
+                    <li><a href="#about" className='bold'  onClick={closeMenu}>About</a></li>
+                    <li><a href="#projects" className='bold'  onClick={closeMenu}>Projects</a></li>
+                    <li><a href="#skills" className='bold'  onClick={closeMenu}>Skills</a></li>
+                    <li><a href="#contact" className='bold' onClick={closeMenu}>Contact</a></li>
                 </ul>
                 <a className="header__nav-resume" href="https://drive.google.com/file/d/1uJALKyFDAEOSzPqzUl2BRfCv1bBXupii/view?usp=sharing" target="_blank">Resume</a>
             </nav>
