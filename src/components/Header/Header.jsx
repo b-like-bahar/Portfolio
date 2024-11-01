@@ -55,7 +55,7 @@ const Header = () => {
                     <li><a href="#skills" className='bold'  onClick={closeMenu}>Skills</a></li>
                     <li><a href="#contact" className='bold' onClick={closeMenu}>Contact</a></li>
                 </ul>
-                <a className="header__nav-resume" href="https://drive.google.com/file/d/1uJALKyFDAEOSzPqzUl2BRfCv1bBXupii/view?usp=sharing" target="_blank">Resume</a>
+                <a className="header__nav-resume" href="https://drive.google.com/file/d/1blQFxCnV6RI1s7x7s6KHlUBrwYp6gJqP/view?usp=sharing" target="_blank">Resume</a>
             </nav>
         </header>
     );
