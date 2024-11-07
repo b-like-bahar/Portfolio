@@ -23,6 +23,7 @@ function Projects() {
             videoSrc: "https://res.cloudinary.com/deuku9jpm/video/upload/v1729249437/instock_p6uock.mp4",
             description: " InStock is a responsive web application created for a Fortune 500 client to manage warehouse inventory efficiently. Developed in a collaborative, agile environment, the project followed a structured sprint process and focused on integrating both front-end and back-end functionality.",
             tools: "#JavaScript #React #Axios #MySQL #Express.js #Knex.js #Node.js #REST APIs #Sass #GitFlow #AgileDevelopment #Git #Github",
+            liveLink: "https://instock-beta.netlify.app/",
         },
         {
             title: "BrainFlix",
