@@ -44,7 +44,7 @@ function Projects() {
         },
     ];
 
-    const displayedProjects = showAll ? projectItems : projectItems.slice(0, 3);
+    const displayedProjects = showAll ? projectItems : projectItems.slice(0, 2);
 
     return (
         <div className="projects" id="projects">
