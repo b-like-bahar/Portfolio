@@ -12,6 +12,7 @@ import mysqlIcon from "../../assets/icons/mysql-icon.svg";
 import nodejsIcon from "../../assets/icons/nodejs-icon.svg";
 import reactIcon from "../../assets/icons/react-icon.svg";
 import postmanIcon from "../../assets/icons/postman-icon.svg";
+import pythonIcon from "../../assets/icons/python-icon.svg";
 import { ReactSVG } from "react-svg";
 import "./Skills.scss";
 
@@ -47,6 +48,10 @@ function Skills() {
                 <div className="skills__component-item">
                     <ReactSVG className="skills__component-item-icon" src={expressIcon} />
                     <p className="skills__component-item-text  small">Express</p>
+                </div>
+                <div className="skills__component-item">
+                    <ReactSVG className="skills__component-item-icon" src={pythonIcon} />
+                    <p className="skills__component-item-text  small">Python</p>
                 </div>
                 <div className="skills__component-item">
                     <ReactSVG className="skills__component-item-icon" src={apiIcon} />
