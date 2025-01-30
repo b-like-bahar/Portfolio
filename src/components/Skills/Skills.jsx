@@ -13,6 +13,8 @@ import nodejsIcon from "../../assets/icons/nodejs-icon.svg";
 import reactIcon from "../../assets/icons/react-icon.svg";
 import postmanIcon from "../../assets/icons/postman-icon.svg";
 import pythonIcon from "../../assets/icons/python-icon.svg";
+import nextIcon from "../../assets/icons/nextjs-icon.svg";
+import tailwindIcon from "../../assets/icons/tailwind-icon.svg";
 import { ReactSVG } from "react-svg";
 import "./Skills.scss";
 
@@ -21,6 +23,30 @@ function Skills() {
         <div className="skills" id="skills">
             <h2 className="skills__title">Skills</h2>
             <div className="skills__component">
+                <div className="skills__component-item">
+                    <ReactSVG className="skills__component-item-icon" src={reactIcon} />
+                    <p className="skills__component-item-text  small">React</p>
+                </div>
+                <div className="skills__component-item">
+                    <ReactSVG className="skills__component-item-icon" src={javascriptIcon} />
+                    <p className="skills__component-item-text  small">JavaScript</p>
+                </div>
+                <div className="skills__component-item">
+                    <ReactSVG className="skills__component-item-icon" src={nextIcon} />
+                    <p className="skills__component-item-text  small">Nextjs</p>
+                </div>
+                <div className="skills__component-item">
+                    <ReactSVG className="skills__component-item-icon" src={pythonIcon} />
+                    <p className="skills__component-item-text  small">Python</p>
+                </div>
+                <div className="skills__component-item">
+                    <ReactSVG className="skills__component-item-icon" src={nodejsIcon} />
+                    <p className="skills__component-item-text  small">Node.js</p>
+                </div>
+                <div className="skills__component-item">
+                    <ReactSVG className="skills__component-item-icon" src={expressIcon} />
+                    <p className="skills__component-item-text  small">Express</p>
+                </div>
                 <div className="skills__component-item">
                     <ReactSVG className="skills__component-item-icon" src={htmlIcon} />
                     <p className="skills__component-item-text  small">HTML5</p>
@@ -34,24 +60,8 @@ function Skills() {
                     <p className="skills__component-item-text  small">Sass</p>
                 </div>
                 <div className="skills__component-item">
-                    <ReactSVG className="skills__component-item-icon" src={javascriptIcon} />
-                    <p className="skills__component-item-text  small">JavaScript</p>
-                </div>
-                <div className="skills__component-item">
-                    <ReactSVG className="skills__component-item-icon" src={reactIcon} />
-                    <p className="skills__component-item-text  small">React</p>
-                </div>
-                <div className="skills__component-item">
-                    <ReactSVG className="skills__component-item-icon" src={nodejsIcon} />
-                    <p className="skills__component-item-text  small">Node.js</p>
-                </div>
-                <div className="skills__component-item">
-                    <ReactSVG className="skills__component-item-icon" src={expressIcon} />
-                    <p className="skills__component-item-text  small">Express</p>
-                </div>
-                <div className="skills__component-item">
-                    <ReactSVG className="skills__component-item-icon" src={pythonIcon} />
-                    <p className="skills__component-item-text  small">Python</p>
+                    <ReactSVG className="skills__component-item-icon" src={tailwindIcon} />
+                    <p className="skills__component-item-text  small">TailwindCss</p>
                 </div>
                 <div className="skills__component-item">
                     <ReactSVG className="skills__component-item-icon" src={apiIcon} />
