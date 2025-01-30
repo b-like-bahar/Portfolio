@@ -6,17 +6,18 @@ function Projects() {
 
     const projectItems = [
         {
+            title: "WebIdeasSprout",
+            videoSrc: "https://res.cloudinary.com/deuku9jpm/video/upload/v1738268257/webideassprout_awtigx.mp4",
+            description: "WebIdeasSprout is a dynamic platform designed to help innovators share and discover web application ideas. It fosters collaboration by allowing users to submit their websites, and explore a diverse collection of other projects. With features like real-time search, authentication, and user profiles, it creates an engaging community for brainstorming and inspiration.",
+            tools: "#Next.js #TypeScript #NextAuth #Sanity.io #TailwindCSS #REST APIs #ServerActions #PartialPreRendering #ParallelFetching #Git #GitHub",
+            liveLink: "https://webideassprout.vercel.app/",
+        },
+        {
             title: "JourneyNook",
             videoSrc: "https://res.cloudinary.com/deuku9jpm/video/upload/v1729249436/journeynook_bjtwjl.mp4",
             description: "JourneyNook is a Full-stack AI-powered travel planner that creates personalized itineraries based on your preferences, budget, and trip type. It simplifies trip planning by generating detailed schedules and helps you explore cities, discover landmarks, and find must-see attractions.",
             tools: "#JavaScript #React #Axios #Node.js #REST APIs #MySQL #Sass #Git #Github",
             liveLink: "https://journeynook.netlify.app/",
-        },
-        {
-            title: "Telus Industry Hackathon",
-            videoSrc: "https://res.cloudinary.com/deuku9jpm/video/upload/v1729249436/industry-hackathon_lganw5.mp4",
-            description: "A 24-hour hackathon sponsored by Telus, was done in a group of 5. focused on addressing the issue of consumers facing option overload, aiming to create a user-friendly, streamlined way for them to access their favorite media.",
-            tools: "#JavaScript #React #Axios #Node.js #REST APIs #Sass #GitFlow #Git #Github",
         },
         {
             title: "Instock",
@@ -29,19 +30,7 @@ function Projects() {
             videoSrc: "https://res.cloudinary.com/deuku9jpm/video/upload/v1729248799/brainflix_wbwv5l.mp4",
             description: "BrainFlix is a responsive video streaming platform where users can view, upload, and manage video content. It features a custom API for handling video data and offers a seamless, YouTube-like experience with a full-stack architecture.",
             tools: "#JavaScript #React #Express.js #Node.js #Axios #Sass #Git #Github",
-        },
-        {
-            title: "Band Site",
-            videoSrc: "https://res.cloudinary.com/deuku9jpm/video/upload/v1729248803/bandsite_cjnboo.mp4",
-            description: "Band Site is a fully responsive platform for an emerging band, featuring a main page with band info and a gallery, plus a shows page with upcoming events. Users can view and post real-time comments, supported by dynamic API integration for seamless updates.",
-            tools: "#HTML #Sass #Axios #APIIntegration #Git #Github",
-        },
-        {
-            title: "Coffee Shop",
-            videoSrc: "https://res.cloudinary.com/deuku9jpm/video/upload/v1729249440/coffeeshop_z3hiuw.mp4",
-            description: "The Coffee Shop project is website featuring a landing page and a menu page. It highlights the ability to create structured layouts, reusable components, and a smooth, responsive design for an enhanced user experience.",
-            tools: "#HTML #Sass #Git #Github",
-        },
+        }
     ];
 
     const displayedProjects = showAll ? projectItems : projectItems.slice(0, 2);
