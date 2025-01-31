@@ -20,6 +20,13 @@ function Projects() {
             liveLink: "https://journeynook.netlify.app/",
         },
         {
+            title: "MiniPyProjects",
+            videoSrc: "https://res.cloudinary.com/deuku9jpm/video/upload/v1738284409/editedminipyprojects_yxyvxn.mp4",
+            description: "MiniPyProjects is a collection of small Python applications, including Guess a Number, Hangman, Rock Paper Scissors, Snake Game, Tic Tac Toe, Madlib, and CalculatorApp. These projects cover game development, problem-solving, and GUI design using Tkinter, offering interactive console-based and graphical experiences.",
+            tools: "#Python #Tkinter #OOP #Pycharm #Git #Github",
+            liveLink: "https://github.com/b-like-bahar/MiniPyProjects.git",
+        },
+        {
             title: "Instock",
             videoSrc: "https://res.cloudinary.com/deuku9jpm/video/upload/v1729249437/instock_p6uock.mp4",
             description: " InStock is a responsive web application created for a Fortune 500 client to manage warehouse inventory efficiently. Developed in a collaborative, agile environment, the project followed a structured sprint process and focused on integrating both front-end and back-end functionality.",
