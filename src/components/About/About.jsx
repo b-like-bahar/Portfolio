@@ -9,15 +9,13 @@ function About() {
             </h2>
             <div className="about__component">
                 <div className="about__component-image">
-                <img className="about__component-image-item" alt="coder-scientist girl cartoon" src={aboutImage} />
-                <div className="about__component-image-border"></div>
+                    <img className="about__component-image-item" alt="coder-scientist girl cartoon" src={aboutImage} />
+                    <div className="about__component-image-border"></div>
                 </div>
                 <p className="about__component-description  small">
-                    I am a Full-Stack Web Developer specializing in JavaScript and React.
-                    I always seek opportunities to acquire new knowledge and enhance my skill set.
-                    My background in physics enables me to offer a unique perspective on technology development.
-                    By combining scientific rigour with a passion for coding, I thrive in environments that value precision, collaboration, and continuous learning.
-                    Whether advancing research or developing software, I’m eager to tackle real-world challenges at the intersection of science and technology.
+                    I’m a Software Engineer with a background in physics and a passion for building clean, accessible, and performant web applications. Specializing in JavaScript, TypeScript, React, Nextjs, and Supabase. I bring a scientific mindset to software development, combining precision, analytical thinking, and continuous learning.
+                    <br />
+                    Whether I’m collaborating on product features, contributing to open-source projects, or exploring new tools, I thrive at the intersection of science and technology. My goal is to turn complex problems into intuitive digital experiences that make a real impact.
                 </p>
             </div>
         </section>
