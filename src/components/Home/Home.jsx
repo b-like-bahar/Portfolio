@@ -12,7 +12,7 @@ function Home() {
             <h1 className="home__name">
                 Bahareh Hamzeh
             </h1>
-            <h2 className="home__job">Innovative Full-Stack Developer</h2>
+            <h2 className="home__job">Innovative Software Engineer</h2>
             <h1>
                 <div className="home__typing">
                     <Typewriter
