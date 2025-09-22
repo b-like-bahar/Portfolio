@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import PortfolioLogo from "../../assets/logos/logo.svg";
 import CloseIcon from "../../assets/icons/close-icon.svg";
 import { ReactSVG } from "react-svg";
@@ -34,6 +34,8 @@ const Header = () => {
         };
     }, [isMenuOpen]);
 
+    const resumeLink = "https://drive.google.com/file/d/1m8CAwZhpaH9XYq9sG_Chp0nI-DFi2iyq/view?usp=sharing";
+
     return (
         <header className="header">
             <div className="header__logo">
@@ -55,7 +57,7 @@ const Header = () => {
                     <li><a href="#skills" className='bold'  onClick={closeMenu}>Skills</a></li>
                     <li><a href="#contact" className='bold' onClick={closeMenu}>Contact</a></li>
                 </ul>
-                <a className="header__nav-resume" href="https://drive.google.com/file/d/1H6AW2QjdeEU0WkXPEgURucCbHaOzmu-F/view?usp=sharing" target="_blank">Resume</a>
+                <a className="header__nav-resume" href={resumeLink} target="_blank">Resume</a>
             </nav>
         </header>
     );
