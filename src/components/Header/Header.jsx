@@ -34,7 +34,7 @@ const Header = () => {
         };
     }, [isMenuOpen]);
 
-    const resumeLink = "https://drive.google.com/file/d/1RYIsu-j5LBtIjy40pXZU3bfoKpyZ5sSU/view?usp=sharing";
+    const resumeLink = "https://drive.google.com/file/d/1Wx_a_aaAdSs1UHZ1SuCnaoXE9v1n_4cX/view?usp=sharing";
 
     return (
         <header className="header">
