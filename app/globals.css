@@ -58,3 +58,57 @@ body {
     opacity: 0;
   }
 }
+
+/* Hamburger Menu */
+.hamburger {
+  width: 30px;
+  height: 24px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hamburger .line {
+  width: 30px;
+  height: 3px;
+  background-color: #ffffff;
+  display: block;
+  position: absolute;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger .line:nth-child(1) {
+  top: 0;
+}
+
+.hamburger .line:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hamburger .line:nth-child(3) {
+  bottom: 0;
+}
+
+.hamburger:hover {
+  cursor: pointer;
+}
+
+/* Symmetric X animation */
+#hamburger-1.is-active .line:nth-child(1) {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+#hamburger-1.is-active .line:nth-child(2) {
+  opacity: 0;
+  transform: translateY(-50%) scale(0);
+}
+
+#hamburger-1.is-active .line:nth-child(3) {
+  bottom: auto;
+  top: 50%;
+  transform: translateY(-50%) rotate(-45deg);
+}
