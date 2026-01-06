@@ -31,9 +31,9 @@ export default function Hero() {
   };
 
   const handleScrollClick = () => {
-    const expertiseSection = document.getElementById("expertise");
-    if (expertiseSection) {
-      smoothScrollTo(expertiseSection,100); // 0.1 seconds duration
+    const skillsSection = document.getElementById("skills");
+    if (skillsSection) {
+      smoothScrollTo(skillsSection,100);
     }
   };
 
