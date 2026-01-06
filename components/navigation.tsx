@@ -56,7 +56,7 @@ export default function Navigation() {
       >
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between">
-          <div className="relative w-56 h-20">
+          <div className="relative w-32 h-20 md:w-48 md:h-24">
             <Image
               src="/logo.svg"
               alt="BaharHamzeh"
