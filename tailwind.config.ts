@@ -12,6 +12,17 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      keyframes: {
+        arrow: {
+          "0%": { opacity: "0" },
+          "40%": { opacity: "1" },
+          "80%": { opacity: "0" },
+          "100%": { opacity: "0" },
+        },
+      },
+      animation: {
+        arrow: "arrow 2s infinite",
+      },
     },
   },
   plugins: [],
