@@ -51,51 +51,53 @@ export default function Navigation() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-300 ${
-          isScrolled ? "bg-black/80 backdrop-blur-md py-4" : "bg-transparent py-6"
+          isScrolled
+            ? "bg-black/80 backdrop-blur-md py-4"
+            : "bg-transparent py-6"
         }`}
       >
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center justify-between">
-          <div className="relative w-32 h-20 md:w-48 md:h-24">
-            <Image
-              src="/logo.svg"
-              alt="BaharHamzeh"
-              fill
-              className="object-contain"
-              priority
-            />
-          </div>
-          <div className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex items-center justify-between">
+            <div className="relative w-32 h-20 md:w-48 md:h-24">
+              <Image
+                src="/logo.svg"
+                alt="BaharHamzeh"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+            <div className="hidden md:flex items-center gap-8">
+              {navItems.map((item) => (
+                <button
+                  key={item.name}
+                  onClick={() => scrollToSection(item.href)}
+                  className={`text-md uppercase tracking-wider transition-colors ${
+                    activeSection === item.href.substring(1)
+                      ? "text-white"
+                      : "text-gray-400 hover:text-white"
+                  }`}
+                >
+                  {item.name}
+                </button>
+              ))}
+            </div>
+            <div className="md:hidden">
               <button
-                key={item.name}
-                onClick={() => scrollToSection(item.href)}
-                className={`text-md uppercase tracking-wider transition-colors ${
-                  activeSection === item.href.substring(1)
-                    ? "text-white"
-                    : "text-gray-400 hover:text-white"
-                }`}
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className={`hamburger p-2 ${isMobileMenuOpen ? "is-active" : ""}`}
+                id="hamburger-1"
+                aria-label="Toggle menu"
               >
-                {item.name}
+                <span className="line"></span>
+                <span className="line"></span>
+                <span className="line"></span>
               </button>
-            ))}
-          </div>
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`hamburger p-2 ${isMobileMenuOpen ? "is-active" : ""}`}
-              id="hamburger-1"
-              aria-label="Toggle menu"
-            >
-              <span className="line"></span>
-              <span className="line"></span>
-              <span className="line"></span>
-            </button>
+            </div>
           </div>
         </div>
-      </div>
       </motion.nav>
-      
+
       {/* Mobile Menu Overlay - Slides from Right */}
       <AnimatePresence>
         {isMobileMenuOpen && (
@@ -108,7 +110,7 @@ export default function Navigation() {
           />
         )}
       </AnimatePresence>
-      
+
       <motion.div
         initial={false}
         animate={{
