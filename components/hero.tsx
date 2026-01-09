@@ -33,7 +33,7 @@ export default function Hero() {
   const handleScrollClick = () => {
     const skillsSection = document.getElementById("skills");
     if (skillsSection) {
-      smoothScrollTo(skillsSection,100);
+      smoothScrollTo(skillsSection, 100);
     }
   };
 
