@@ -5,6 +5,11 @@
 :root {
   --background: #0a0a0a;
   --foreground: #ededed;
+  --gradient-primary: linear-gradient(
+    180deg,
+    #23a1db,
+    #e1bfec
+  );
 }
 
 * {
@@ -124,3 +129,11 @@ body {
   transform: translateY(-50%) rotate(-45deg);
 }
 
+/* Gradient text utility for section titles */
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.5 !important;
+}
