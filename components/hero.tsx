@@ -2,8 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Github, Linkedin, Mail } from "lucide-react";
-import Link from "next/link";
+import ContactOptions from "@/components/contact-options";
 export default function Hero() {
   const smoothScrollTo = (element: HTMLElement, duration: number = 2000) => {
     const start = window.pageYOffset;
@@ -95,31 +94,8 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex items-center gap-4"
           >
-            <Link
-              href="https://github.com/b-like-bahar"
-              target="_blank"
-              className="w-12 h-12 rounded-full border-2 border-[#E5E7EB] flex items-center justify-center text-[#E5E7EB] hover:border-[#A5B4FC] hover:text-[#A5B4FC] transition-colors"
-              aria-label="GitHub"
-            >
-              <Github size={25} />
-            </Link>
-            <Link
-              href="https://www.linkedin.com/in/bahareh-hamzeh"
-              target="_blank"
-              className="w-12 h-12 rounded-full border-2 border-[#E5E7EB] flex items-center justify-center text-[#E5E7EB] hover:border-[#A5B4FC] hover:text-[#A5B4FC] transition-colors"
-              aria-label="LinkedIn"
-            >
-              <Linkedin size={20} />
-            </Link>
-            <Link
-              href="mailto:blikebahar76@gmail.com"
-              className="w-12 h-12 rounded-full border-2 border-[#E5E7EB] flex items-center justify-center text-[#E5E7EB] hover:border-[#A5B4FC] hover:text-[#A5B4FC] transition-colors"
-              aria-label="Email"
-            >
-              <Mail size={20} />
-            </Link>
+            <ContactOptions />
           </motion.div>
         </div>
       </div>
