@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --background: #0B0F14;
-  --foreground: #E5E7EB;
+  --background: #0b0f14;
+  --foreground: #e5e7eb;
 }
 
 * {
@@ -47,12 +47,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #9CA3AF;
+  background: #9ca3af;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #A5B4FC;
+  background: #a5b4fc;
 }
 
 @keyframes arrow {
@@ -123,7 +123,6 @@ body {
   top: 50%;
   transform: translateY(-50%) rotate(-45deg);
 }
-
 
 @layer base {
   :root {
