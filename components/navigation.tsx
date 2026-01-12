@@ -56,9 +56,9 @@ export default function Navigation() {
             : "bg-transparent py-6"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 sm:px-6 md:px-8 lg:pl-4 lg:pr-8">
           <div className="flex items-center justify-between">
-            <div className="relative w-32 h-20 md:w-48 md:h-24">
+            <div className="relative w-28 h-16 sm:w-32 sm:h-20 md:w-48 md:h-24 flex-shrink-0">
               <Image
                 src="/logo.svg"
                 alt="BaharHamzeh"
