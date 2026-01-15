@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ArrowUp } from "lucide-react";
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
@@ -33,23 +34,26 @@ export default function ScrollToTop() {
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 p-4 bg-white text-black rounded-full shadow-lg hover:bg-gray-200 transition-colors"
+          className="fixed bottom-8 right-8 z-50 p-4 bg-[#111827] border border-[#8B8CF6]/30 rounded-full shadow-lg hover:border-[#8B8CF6] transition-all duration-300 group"
+          style={{
+            boxShadow: "0 0 0 0 rgba(139, 140, 246, 0)",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.boxShadow =
+              "0 0 20px rgba(139, 140, 246, 0.3)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.boxShadow = "0 0 0 0 rgba(139, 140, 246, 0)";
+          }}
           aria-label="Scroll to top"
         >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M5 10l7-7m0 0l7 7m-7-7v18"
-            />
-          </svg>
+          <ArrowUp
+            size={30}
+            className="text-[#8B8CF6] group-hover:text-[#A5B4FC] transition-colors"
+          />
         </motion.button>
       )}
     </AnimatePresence>
