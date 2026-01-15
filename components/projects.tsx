@@ -106,9 +106,13 @@ export default function Projects() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold text-[#E5E7EB]">
+          <h2 className="text-5xl md:text-6xl font-bold text-[#E5E7EB] mb-4">
             Projects
           </h2>
+          <p className="text-base md:text-2xl text-[#9CA3AF]">
+            A selection of my more recent projects. Hover to explore details,
+            tech stack, and live demos
+          </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 md:gap-10">
@@ -168,7 +172,9 @@ export default function Projects() {
                 </p>
                 {project.technologies && project.technologies.length > 0 && (
                   <div className="mb-4">
-                    <p className="text-base md:text-lg font-medium text-[#E5E7EB] mb-3">Technologies:</p>
+                    <p className="text-base md:text-lg font-medium text-[#E5E7EB] mb-3">
+                      Technologies:
+                    </p>
                     <div className="flex flex-wrap gap-2">
                       {project.technologies.map((tech, index) => (
                         <span
