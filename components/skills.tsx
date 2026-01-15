@@ -40,6 +40,7 @@ const icons = [
 
   // Data & backend services
   { name: "Supabase", path: "/icons/supabase.svg", description: "Supabase" },
+  { name: "Clerck", path: "/icons/clerck.svg", description: "Clerck" },
   { name: "Convex", path: "/icons/convex.svg", description: "Convex" },
   { name: "MySQL", path: "/icons/mysql.svg", description: "MySQL" },
 
