@@ -22,7 +22,6 @@ body {
   background: var(--background);
   font-family:
     var(--font-caveat),
-    var(--font-kalam),
     -apple-system,
     BlinkMacSystemFont,
     "Segoe UI",
