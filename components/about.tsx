@@ -76,7 +76,7 @@ export default function About() {
         <div className="max-w-4xl mx-auto">
           <div
             ref={scanTargetRef}
-            className="aboutScanTarget space-y-6 text-base md:text-lg lg:text-xl text-[#E5E7EB] leading-relaxed relative overflow-hidden mb-10"
+            className="aboutScanTarget space-y-6 text-base md:text-lg lg:text-xl xl:text-2xl text-[#E5E7EB] leading-relaxed relative overflow-hidden mb-10"
           >
             {isScanning && contentHeight > 0 && (
               <motion.div
@@ -145,7 +145,7 @@ export default function About() {
                   <Play className="w-4 h-4 text-[#9CA3AF] group-hover:text-[#A5B4FC]" />
                 )}
               </motion.div>
-              <span className="text-sm text-[#E5E7EB]">
+              <span className="text-base text-[#E5E7EB]">
                 {isScanning
                   ? "Scanning..."
                   : isResetting

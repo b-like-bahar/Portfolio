@@ -84,7 +84,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             onClick={handleContactClick}
-            className="px-6 sm:px-8 py-3 sm:py-4 bg-[#8B8CF6] hover:bg-[#A5B4FC] text-[#0B0F14] font-semibold rounded-lg transition-colors duration-300 mb-8 sm:mb-12 text-sm sm:text-base"
+            className="px-6 sm:px-8 py-3 sm:py-4 bg-[#8B8CF6] hover:bg-[#A5B4FC] text-[#0B0F14] font-semibold rounded-lg transition-colors duration-300 mb-8 sm:mb-12 text-base"
           >
             Let's talk
           </motion.button>

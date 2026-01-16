@@ -45,7 +45,7 @@ export default function ScrollIndicator({
       className="flex flex-col items-center gap-2 py-4 cursor-pointer group"
       onClick={scrollToTarget}
     >
-      <span className="text-lg text-[#9CA3AF] group-hover:text-[#8B8CF6] transition-colors">
+      <span className="text-base md:text-lg lg:text-xl xl:text-2xl text-[#9CA3AF] group-hover:text-[#8B8CF6] transition-colors">
         {label}
       </span>
       <motion.div

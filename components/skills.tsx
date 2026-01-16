@@ -122,7 +122,7 @@ export default function Skills() {
           </div>
         </TooltipProvider>
 
-        <p className="text-center md:text-center lg:text-right text-lg md:text-xl lg:text-2xl text-[#9CA3AF] mt-16 max-w-2xl mx-auto lg:ml-auto lg:mr-0 italic">
+        <p className="text-center md:text-center lg:text-right text-base md:text-lg lg:text-xl xl:text-2xl text-[#9CA3AF] mt-16 max-w-2xl mx-auto lg:ml-auto lg:mr-0 italic">
           This stack continues to evolve through practice, curiosity, and
           real-world work.
         </p>

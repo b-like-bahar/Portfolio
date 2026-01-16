@@ -73,10 +73,10 @@ export default function Navigation() {
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className={`text-md uppercase tracking-wider transition-colors ${
+                  className={`text-base uppercase tracking-wider transition-colors ${
                     activeSection === item.href.substring(1)
-                      ? "text-white"
-                      : "text-gray-400 hover:text-white"
+                      ? "text-[#E5E7EB]"
+                      : "text-[#9CA3AF] hover:text-[#E5E7EB]"
                   }`}
                 >
                   {item.name}
@@ -129,10 +129,10 @@ export default function Navigation() {
                   scrollToSection(item.href);
                   setIsMobileMenuOpen(false);
                 }}
-                className={`text-right text-lg uppercase tracking-wider transition-colors ${
+                className={`text-right text-base uppercase tracking-wider transition-colors ${
                   activeSection === item.href.substring(1)
-                    ? "text-white"
-                    : "text-gray-400 hover:text-white"
+                    ? "text-[#E5E7EB]"
+                    : "text-[#9CA3AF] hover:text-[#E5E7EB]"
                 }`}
               >
                 {item.name}

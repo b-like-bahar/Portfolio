@@ -152,7 +152,7 @@ export default function Projects() {
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center bg-[#0B0F14]">
-                    <span className="text-[#9CA3AF] text-base">
+                    <span className="text-[#9CA3AF] text-base md:text-lg lg:text-xl xl:text-2xl">
                       Project Image
                     </span>
                   </div>
@@ -167,19 +167,19 @@ export default function Projects() {
                 <h4 className="text-2xl md:text-3xl font-semibold mb-4 text-[#8B8CF6]">
                   {project.title}
                 </h4>
-                <p className="text-base md:text-lg text-[#9CA3AF] mb-4 leading-relaxed">
+                <p className="text-base md:text-lg lg:text-xl xl:text-2xl text-[#9CA3AF] mb-4 leading-relaxed">
                   {project.description}
                 </p>
                 {project.technologies && project.technologies.length > 0 && (
                   <div className="mb-4">
-                    <p className="text-base md:text-lg font-medium text-[#E5E7EB] mb-3">
+                    <p className="text-base md:text-lg lg:text-xl xl:text-2xl font-medium text-[#E5E7EB] mb-3">
                       Technologies:
                     </p>
                     <div className="flex flex-wrap gap-2">
                       {project.technologies.map((tech, index) => (
                         <span
                           key={index}
-                          className="px-3 py-1.5 text-sm md:text-base bg-[#0B0F14] text-[#E5E7EB] rounded border border-[#111827]"
+                          className="px-3 py-1.5 text-base md:text-lg lg:text-xl xl:text-2xl bg-[#0B0F14] text-[#E5E7EB] rounded border border-[#111827]"
                         >
                           {tech}
                         </span>
@@ -191,7 +191,7 @@ export default function Projects() {
                   <Link
                     href={project.gitHubLink}
                     target="_blank"
-                    className="flex items-center gap-2 text-base text-[#9CA3AF] hover:text-[#8B8CF6] transition-colors duration-300"
+                    className="flex items-center gap-2 text-base md:text-lg lg:text-xl xl:text-2xl text-[#9CA3AF] hover:text-[#8B8CF6] transition-colors duration-300"
                   >
                     <Github size={20} />
                     <span>Code</span>
@@ -200,7 +200,7 @@ export default function Projects() {
                     <Link
                       href={project.liveLink}
                       target="_blank"
-                      className="flex items-center gap-2 text-base text-[#9CA3AF] hover:text-[#8B8CF6] transition-colors duration-300"
+                      className="flex items-center gap-2 text-base md:text-lg lg:text-xl xl:text-2xl text-[#9CA3AF] hover:text-[#8B8CF6] transition-colors duration-300"
                     >
                       <ExternalLink size={20} />
                       <span>Live</span>
