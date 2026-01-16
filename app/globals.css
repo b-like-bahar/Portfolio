@@ -55,24 +55,6 @@ body {
   background: #a5b4fc;
 }
 
-@keyframes arrow {
-  0% {
-    opacity: 0;
-  }
-
-  40% {
-    opacity: 1;
-  }
-
-  80% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
 /* Hamburger Menu */
 .hamburger {
   width: 30px;
@@ -155,39 +137,7 @@ body {
     --border: 222 47% 11%;
     --input: 222 47% 11%;
     --ring: 237 85% 75%;
-    --chart-1: 237 85% 75%;
-    --chart-2: 230 90% 85%;
-    --chart-3: 215 16% 47%;
-    --chart-4: 222 47% 11%;
-    --chart-5: 210 25% 6%;
     --radius: 0.5rem;
-  }
-
-  .dark {
-    --background: 210 25% 6%;
-    --foreground: 220 13% 91%;
-    --card: 222 47% 11%;
-    --card-foreground: 220 13% 91%;
-    --popover: 222 47% 11%;
-    --popover-foreground: 220 13% 91%;
-    --primary: 237 85% 75%;
-    --primary-foreground: 210 25% 6%;
-    --secondary: 222 47% 11%;
-    --secondary-foreground: 220 13% 91%;
-    --muted: 222 47% 11%;
-    --muted-foreground: 215 16% 47%;
-    --accent: 230 90% 85%;
-    --accent-foreground: 210 25% 6%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 220 13% 91%;
-    --border: 222 47% 11%;
-    --input: 222 47% 11%;
-    --ring: 237 85% 75%;
-    --chart-1: 237 85% 75%;
-    --chart-2: 230 90% 85%;
-    --chart-3: 215 16% 47%;
-    --chart-4: 222 47% 11%;
-    --chart-5: 210 25% 6%;
   }
 }
 
@@ -203,7 +153,6 @@ body {
 }
 
 @keyframes titleFloat {
-
   0%,
   100% {
     transform: translateY(0);
@@ -316,7 +265,6 @@ body {
 }
 
 @keyframes bodySway {
-
   0%,
   100% {
     transform: translateX(0px) rotate(0deg);
@@ -328,9 +276,60 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-
   .waving-character:hover .arm-right,
   .waving-character:hover .wave-lines {
     animation: none;
+  }
+}
+
+/* Magic Scan Animation */
+.aboutScanTarget {
+  position: relative;
+  overflow: hidden;
+}
+
+.scan-line {
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(165, 180, 252, 0.4) 20%,
+    rgba(139, 140, 246, 0.8) 50%,
+    rgba(165, 180, 252, 0.4) 80%,
+    transparent 100%
+  );
+  box-shadow:
+    0 0 15px rgba(139, 140, 246, 0.6),
+    0 0 30px rgba(139, 140, 246, 0.3);
+}
+
+.magic-scan-button {
+  position: relative;
+}
+
+.magic-scan-button:not(:disabled):hover {
+  transform: translateY(-1px);
+}
+
+.magic-scan-button:disabled {
+  opacity: 0.7;
+}
+
+.magic-scan-button-done {
+  position: relative;
+}
+
+.magic-scan-button-done:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 10px rgba(139, 140, 246, 0.2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scan-line {
+    display: none;
+  }
+
+  .magic-scan-button,
+  .magic-scan-button-done {
+    transition: none;
   }
 }
