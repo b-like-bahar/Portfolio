@@ -40,12 +40,18 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex flex-col lg:flex-row relative overflow-hidden bg-[#0B0F14]"
+      className="min-h-screen flex flex-col lg:flex-row relative bg-[#0B0F14] mt-6"
     >
-      {/* Left Side - Text Content */}
-      <div className="flex-1 flex flex-col justify-center px-6 sm:px-8 md:px-12 lg:px-12 lg:pl-16 pt-12 sm:pt-16 md:pt-20 lg:pt-24 pb-4 sm:pb-6 md:pb-8 lg:pb-24">
+      <div className="flex-1 flex flex-col justify-center px-6 sm:px-8 md:px-12 lg:px-12 lg:pl-16 pt-20 sm:pt-24 md:pt-28 lg:pt-24 pb-2 sm:pb-4 md:pb-6 lg:pb-24 bg-[#0B0F14]">
         <div className="max-w-2xl">
-          {/* Name */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0 }}
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-[#8B8CF6] mb-2 text-bold"
+          >
+            Hi,
+          </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -54,8 +60,6 @@ export default function Hero() {
           >
             I'm Bahar Hamzeh
           </motion.h1>
-
-          {/* Title */}
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -64,8 +68,6 @@ export default function Hero() {
           >
             Software Engineer
           </motion.h2>
-
-          {/* Description */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -77,8 +79,6 @@ export default function Hero() {
             systems, and writing code that’s tested, documented, and ready to
             ship.
           </motion.p>
-
-          {/* CTA Button */}
           <motion.button
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -88,8 +88,6 @@ export default function Hero() {
           >
             Let's talk
           </motion.button>
-
-          {/* Social Icons */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -99,20 +97,16 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
-
-      {/* Right Side - Image with Glowing Circular Frame */}
-      <div className="flex-1 relative min-h-[300px] sm:min-h-[400px] md:min-h-[500px] lg:min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 md:px-8 lg:px-8 sm:pt-6 md:pt-8 lg:pt-0 pb-8 sm:pb-12 lg:pb-0">
+      <div className="flex-1 relative min-h-[300px] sm:min-h-[400px] md:min-h-[500px] lg:min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-8 lg:px-8 pt-2 sm:pt-4 md:pt-6 lg:pt-0 pb-8 sm:pb-12 lg:pb-0 bg-[#0B0F14] overflow-visible lg:overflow-hidden">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           className="relative w-full h-full flex items-center justify-center"
         >
-          {/* Large circular frame with glow - extends beyond edges */}
           <div className="relative w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] md:w-[350px] md:h-[350px] lg:w-[400px] lg:h-[400px] xl:w-[450px] xl:h-[450px] lg:-mr-16">
-            {/* Glow effect */}
             <div
-              className="absolute inset-0 rounded-full"
+              className="absolute inset-0 rounded-full -m-8 lg:m-0"
               style={{
                 background:
                   "radial-gradient(circle, #8B8CF6 0%, #8B8CF6 40%, transparent 70%)",
@@ -120,8 +114,6 @@ export default function Hero() {
                 opacity: 0.6,
               }}
             />
-
-            {/* Circular frame border */}
             <div
               className="absolute inset-0 rounded-full border-4 sm:border-6 lg:border-8 border-[#8B8CF6]"
               style={{
@@ -129,8 +121,6 @@ export default function Hero() {
                   "0 0 60px rgba(139, 140, 246, 0.5), inset 0 0 60px rgba(139, 140, 246, 0.2)",
               }}
             />
-
-            {/* Image container with circular clip */}
             <div className="absolute inset-4 sm:inset-6 lg:inset-8 rounded-full overflow-hidden bg-[#8B8CF6]">
               <Image
                 src="/hero-image.png"
