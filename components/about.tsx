@@ -10,7 +10,7 @@ const paragraphs = [
   "I enjoy writing tests, keeping docs alive, and making small improvements that quietly make a product better. Curiosity keeps me moving forward, and I'm always learning what's next.",
 ];
 
-type ScanState = "idle" | "scanning" | "done";
+type ScanState = "idle" | "scanning" | "done" | "resetting";
 
 export default function About() {
   const [scanState, setScanState] = useState<ScanState>("idle");
@@ -45,14 +45,19 @@ export default function About() {
     setScanState("scanning");
     timeoutRef.current = setTimeout(() => {
       setScanState("done");
+      // Show "resetting" state briefly before going back to idle
       timeoutRef.current = setTimeout(() => {
-        setScanState("idle");
-      }, 2000);
+        setScanState("resetting");
+        timeoutRef.current = setTimeout(() => {
+          setScanState("idle");
+        }, 800);
+      }, 1200);
     }, 2500);
   };
 
   const isScanning = scanState === "scanning";
   const isDone = scanState === "done";
+  const isResetting = scanState === "resetting";
 
   return (
     <section id="about" className="py-32 px-6 relative">
@@ -71,7 +76,7 @@ export default function About() {
         <div className="max-w-4xl mx-auto">
           <div
             ref={scanTargetRef}
-            className="aboutScanTarget space-y-6 text-base md:text-lg lg:text-xl text-[#E5E7EB] leading-relaxed relative overflow-hidden mb-8"
+            className="aboutScanTarget space-y-6 text-base md:text-lg lg:text-xl text-[#E5E7EB] leading-relaxed relative overflow-hidden mb-10"
           >
             {isScanning && contentHeight > 0 && (
               <motion.div
@@ -108,10 +113,10 @@ export default function About() {
           <div className="flex justify-center items-center gap-3">
             <button
               onClick={handleScanClick}
-              disabled={isScanning}
+              disabled={isScanning || isResetting}
               className={`magic-scan-button group flex items-center gap-2 px-4 py-2 rounded-lg border transition-all duration-300 ${
-                isScanning
-                  ? "border-[#9CA3AF]/30 bg-[#111827] cursor-not-allowed"
+                isScanning || isResetting
+                  ? "border-[#9CA3AF]/30 bg-[#111827] cursor-not-allowed opacity-70"
                   : isDone
                     ? "border-[#8B8CF6] bg-[#111827] hover:bg-[#1a1f2e] hover:border-[#A5B4FC] cursor-pointer"
                     : "border-[#9CA3AF]/30 bg-transparent hover:border-[#A5B4FC]/50 hover:bg-[#111827] cursor-pointer"
@@ -127,6 +132,13 @@ export default function About() {
               >
                 {isScanning ? (
                   <RefreshCw className="w-4 h-4 text-[#9CA3AF] group-hover:text-[#A5B4FC]" />
+                ) : isResetting ? (
+                  <motion.div
+                    animate={{ opacity: [1, 0.5, 1] }}
+                    transition={{ duration: 0.8, repeat: Infinity }}
+                  >
+                    <RefreshCw className="w-4 h-4 text-[#9CA3AF]" />
+                  </motion.div>
                 ) : isDone ? (
                   <Check className="w-4 h-4 text-[#8B8CF6] group-hover:text-[#A5B4FC] transition-colors" />
                 ) : (
@@ -136,9 +148,11 @@ export default function About() {
               <span className="text-sm text-[#E5E7EB]">
                 {isScanning
                   ? "Scanning..."
-                  : isDone
-                    ? "Nothing broke. Success!"
-                    : "Click to see magic"}
+                  : isResetting
+                    ? "Resetting..."
+                    : isDone
+                      ? "Nothing broke. Success!"
+                      : "Click to see magic"}
               </span>
             </button>
           </div>
