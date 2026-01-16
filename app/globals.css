@@ -218,7 +218,7 @@ body {
   transition: opacity 0.2s ease;
 }
 
-/* Hover wave - more natural movement */
+/* Hover wave */
 .waving-character:hover .arm-right {
   animation: naturalWave 1.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
