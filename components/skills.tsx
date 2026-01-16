@@ -1,6 +1,8 @@
 "use client";
 
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import { Lightbulb } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
@@ -70,6 +72,65 @@ const icons = [
 ];
 
 export default function Skills() {
+  const [lightingIconIndex, setLightingIconIndex] = useState<number | null>(
+    null
+  );
+  const [allLighting, setAllLighting] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const timeoutRefs = useRef<NodeJS.Timeout[]>([]);
+
+  useEffect(() => {
+    return () => {
+      timeoutRefs.current.forEach((timeout) => clearTimeout(timeout));
+    };
+  }, []);
+
+  const handleLightUp = () => {
+    if (isAnimating) return;
+
+    setIsAnimating(true);
+    setLightingIconIndex(null);
+    setAllLighting(false);
+    timeoutRefs.current.forEach((timeout) => clearTimeout(timeout));
+    timeoutRefs.current = [];
+
+    const totalIcons = icons.length;
+    const delayBetweenIcons = 200;
+    const iconLightDuration = 200;
+
+    // Animate through each icon sequentially
+    icons.forEach((_, index) => {
+      const lightUpTimeout = setTimeout(() => {
+        setLightingIconIndex(index);
+      }, index * delayBetweenIcons);
+      const lightDownTimeout = setTimeout(
+        () => {
+          setLightingIconIndex(null);
+        },
+        index * delayBetweenIcons + iconLightDuration
+      );
+
+      timeoutRefs.current.push(lightUpTimeout, lightDownTimeout);
+    });
+    const allLightUpTimeout = setTimeout(
+      () => {
+        setAllLighting(true);
+        setLightingIconIndex(null);
+      },
+      totalIcons * delayBetweenIcons + iconLightDuration
+    );
+
+    const finishTimeout = setTimeout(
+      () => {
+        setAllLighting(false);
+        setIsAnimating(false);
+      },
+      totalIcons * delayBetweenIcons + iconLightDuration + 600
+    ); // All icons lit for 600ms
+
+    timeoutRefs.current.push(allLightUpTimeout, finishTimeout);
+  };
+
   return (
     <section id="skills" className="py-32 px-6">
       <div className="max-w-7xl mx-auto">
@@ -82,43 +143,85 @@ export default function Skills() {
             test, and ship production-ready web applications.
           </p>
         </div>
+        <div className="flex justify-center mb-8">
+          <button
+            onClick={handleLightUp}
+            disabled={isAnimating}
+            className={`group flex items-center gap-2 px-4 py-2 rounded-lg border transition-all duration-300 ${
+              isAnimating
+                ? "border-[#9CA3AF]/30 bg-[#111827] cursor-not-allowed opacity-70"
+                : "border-[#9CA3AF]/30 bg-transparent hover:border-[#A5B4FC]/50 hover:bg-[#111827] cursor-pointer"
+            }`}
+          >
+            <Lightbulb
+              className={`w-4 h-4 transition-colors ${
+                isAnimating
+                  ? "text-[#9CA3AF]"
+                  : "text-[#9CA3AF] group-hover:text-[#A5B4FC]"
+              }`}
+            />
+            <span className="text-base text-[#E5E7EB]">
+              {isAnimating ? "Lighting up..." : "Click here to light them up!"}
+            </span>
+          </button>
+        </div>
+
         <TooltipProvider>
           <div className="flex flex-wrap justify-center gap-5 md:gap-6 mx-10">
-            {icons.map((icon) => (
-              <Tooltip key={icon.name}>
-                <TooltipTrigger asChild>
-                  <button
-                    className="group relative w-16 h-16 md:w-19 md:h-19 rounded-lg bg-[#111827] border border-[#111827] flex items-center justify-center transition-all duration-300 hover:border-[#8B8CF6] hover:bg-[#1a1f2e] focus:outline-none focus:ring-2 focus:ring-[#8B8CF6] focus:ring-offset-2 focus:ring-offset-[#0B0F14]"
-                    style={{
-                      boxShadow: "0 0 0 0 rgba(139, 140, 246, 0)",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.boxShadow =
-                        "0 0 20px rgba(139, 140, 246, 0.15)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.boxShadow =
-                        "0 0 0 0 rgba(139, 140, 246, 0)";
-                    }}
-                  >
-                    <Image
-                      src={icon.path}
-                      alt={icon.name}
-                      width={32}
-                      height={32}
-                      className="w-8 h-8 object-contain transition-all duration-300 group-hover:brightness-0 group-hover:invert group-hover:sepia group-hover:saturate-[10000%] group-hover:hue-rotate-[240deg]"
+            {icons.map((icon, index) => {
+              const isLighting = allLighting || lightingIconIndex === index;
+              return (
+                <Tooltip key={icon.name}>
+                  <TooltipTrigger asChild>
+                    <button
+                      className={`group relative w-16 h-16 md:w-19 md:h-19 rounded-lg border flex items-center justify-center transition-all duration-300 ${
+                        isLighting
+                          ? "border-[#8B8CF6] bg-[#1a1f2e]"
+                          : "border-[#111827] bg-[#111827] hover:border-[#8B8CF6] hover:bg-[#1a1f2e]"
+                      } focus:outline-none focus:ring-2 focus:ring-[#8B8CF6] focus:ring-offset-2 focus:ring-offset-[#0B0F14]`}
                       style={{
-                        filter: "brightness(0) invert(1)",
+                        boxShadow: isLighting
+                          ? "0 0 20px rgba(139, 140, 246, 0.15)"
+                          : "0 0 0 0 rgba(139, 140, 246, 0)",
                       }}
-                      priority={false}
-                    />
-                  </button>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p className="text-lg">{icon.description}</p>
-                </TooltipContent>
-              </Tooltip>
-            ))}
+                      onMouseEnter={(e) => {
+                        if (!isLighting) {
+                          e.currentTarget.style.boxShadow =
+                            "0 0 20px rgba(139, 140, 246, 0.15)";
+                        }
+                      }}
+                      onMouseLeave={(e) => {
+                        if (!isLighting) {
+                          e.currentTarget.style.boxShadow =
+                            "0 0 0 0 rgba(139, 140, 246, 0)";
+                        }
+                      }}
+                    >
+                      <Image
+                        src={icon.path}
+                        alt={icon.name}
+                        width={32}
+                        height={32}
+                        className={`w-8 h-8 object-contain transition-all duration-300 ${
+                          isLighting
+                            ? "brightness-0 invert sepia saturate-[10000%] hue-rotate-[240deg]"
+                            : "group-hover:brightness-0 group-hover:invert group-hover:sepia group-hover:saturate-[10000%] group-hover:hue-rotate-[240deg]"
+                        }`}
+                        style={{
+                          filter: isLighting
+                            ? "brightness(0) invert(1) sepia(100%) saturate(10000%) hue-rotate(240deg)"
+                            : "brightness(0) invert(1)",
+                        }}
+                        priority={false}
+                      />
+                    </button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p className="text-lg">{icon.description}</p>
+                  </TooltipContent>
+                </Tooltip>
+              );
+            })}
           </div>
         </TooltipProvider>
 
