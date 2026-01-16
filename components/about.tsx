@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
-import { Play, Check, Sparkles } from "lucide-react";
+import { Play, Check, RefreshCw } from "lucide-react";
 
 const paragraphs = [
   "I'm a software engineer with a physics background, which explains my patience for complex problems and my low tolerance for vague bugs. I switched from research to web development because I like building systems people can interact with, not just simulate.",
@@ -19,14 +19,12 @@ export default function About() {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    // Calculate content height when component mounts
     if (scanTargetRef.current) {
       setContentHeight(scanTargetRef.current.offsetHeight);
     }
   }, []);
 
   useEffect(() => {
-    // Cleanup timeout on unmount
     return () => {
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
@@ -36,31 +34,21 @@ export default function About() {
 
   const handleScanClick = () => {
     if (scanState === "scanning") return;
-
-    // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
 
     if (prefersReducedMotion) {
-      // Skip animation, go straight to done
       setScanState("done");
       return;
     }
-
-    // Start scanning
     setScanState("scanning");
-
-    // Transition to done after scan animation completes (2500ms)
     timeoutRef.current = setTimeout(() => {
       setScanState("done");
+      timeoutRef.current = setTimeout(() => {
+        setScanState("idle");
+      }, 2000);
     }, 2500);
-  };
-
-  const handleReplay = () => {
-    if (scanState === "done") {
-      setScanState("idle");
-    }
   };
 
   const isScanning = scanState === "scanning";
@@ -81,12 +69,10 @@ export default function About() {
         </motion.div>
 
         <div className="max-w-4xl mx-auto">
-          {/* Scan target wrapper */}
           <div
             ref={scanTargetRef}
             className="aboutScanTarget space-y-6 text-base md:text-lg lg:text-xl text-[#E5E7EB] leading-relaxed relative overflow-hidden mb-8"
           >
-            {/* Scan line overlay */}
             {isScanning && contentHeight > 0 && (
               <motion.div
                 initial={{ top: -10 }}
@@ -119,48 +105,42 @@ export default function About() {
               </motion.p>
             ))}
           </div>
-
-          {/* CTA Button Row */}
           <div className="flex justify-center items-center gap-3">
-            {!isDone ? (
-              <button
-                onClick={handleScanClick}
-                disabled={isScanning}
-                className={`magic-scan-button group flex items-center gap-2 px-4 py-2 rounded-lg border transition-all duration-300 ${
+            <button
+              onClick={handleScanClick}
+              disabled={isScanning}
+              className={`magic-scan-button group flex items-center gap-2 px-4 py-2 rounded-lg border transition-all duration-300 ${
+                isScanning
+                  ? "border-[#9CA3AF]/30 bg-[#111827] cursor-not-allowed"
+                  : isDone
+                    ? "border-[#8B8CF6] bg-[#111827] hover:bg-[#1a1f2e] hover:border-[#A5B4FC] cursor-pointer"
+                    : "border-[#9CA3AF]/30 bg-transparent hover:border-[#A5B4FC]/50 hover:bg-[#111827] cursor-pointer"
+              }`}
+            >
+              <motion.div
+                animate={isScanning ? { rotate: 360 } : {}}
+                transition={
                   isScanning
-                    ? "border-[#9CA3AF]/30 bg-[#111827] cursor-not-allowed"
-                    : "border-[#9CA3AF]/30 bg-transparent hover:border-[#A5B4FC]/50 hover:bg-[#111827]"
-                }`}
+                    ? { duration: 2, repeat: Infinity, ease: "linear" }
+                    : {}
+                }
               >
-                <motion.div
-                  animate={isScanning ? { rotate: 360 } : {}}
-                  transition={
-                    isScanning
-                      ? { duration: 2, repeat: Infinity, ease: "linear" }
-                      : {}
-                  }
-                >
-                  {isScanning ? (
-                    <Sparkles className="w-4 h-4 text-[#9CA3AF] group-hover:text-[#A5B4FC]" />
-                  ) : (
-                    <Play className="w-4 h-4 text-[#9CA3AF] group-hover:text-[#A5B4FC]" />
-                  )}
-                </motion.div>
-                <span className="text-sm text-[#E5E7EB]">
-                  {isScanning ? "Scanning..." : "Click to see magic"}
-                </span>
-              </button>
-            ) : (
-              <button
-                onClick={handleReplay}
-                className="magic-scan-button-done flex items-center gap-2 px-4 py-2 rounded-lg border border-[#8B8CF6] bg-[#111827] hover:bg-[#1a1f2e] transition-all duration-300"
-              >
-                <Check className="w-4 h-4 text-[#8B8CF6]" />
-                <span className="text-sm text-[#E5E7EB]">
-                  Nothing broke. Success!
-                </span>
-              </button>
-            )}
+                {isScanning ? (
+                  <RefreshCw className="w-4 h-4 text-[#9CA3AF] group-hover:text-[#A5B4FC]" />
+                ) : isDone ? (
+                  <Check className="w-4 h-4 text-[#8B8CF6] group-hover:text-[#A5B4FC] transition-colors" />
+                ) : (
+                  <Play className="w-4 h-4 text-[#9CA3AF] group-hover:text-[#A5B4FC]" />
+                )}
+              </motion.div>
+              <span className="text-sm text-[#E5E7EB]">
+                {isScanning
+                  ? "Scanning..."
+                  : isDone
+                    ? "Nothing broke. Success!"
+                    : "Click to see magic"}
+              </span>
+            </button>
           </div>
         </div>
       </div>
