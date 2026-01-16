@@ -106,7 +106,7 @@ export default function Projects() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold text-[#E5E7EB] mb-4">
+          <h2 className="section-title text-5xl md:text-6xl font-bold text-[#E5E7EB] mb-4">
             Projects
           </h2>
           <p className="text-base md:text-2xl text-[#9CA3AF]">

@@ -12,7 +12,7 @@ export default function Contact() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-5xl md:text-6xl font-bold mb-8"
+          className="section-title text-5xl md:text-6xl font-bold mb-8"
         >
           Get In Touch
         </motion.h2>
