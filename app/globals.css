@@ -59,12 +59,15 @@ body {
   0% {
     opacity: 0;
   }
+
   40% {
     opacity: 1;
   }
+
   80% {
     opacity: 0;
   }
+
   100% {
     opacity: 0;
   }
@@ -159,6 +162,7 @@ body {
     --chart-5: 210 25% 6%;
     --radius: 0.5rem;
   }
+
   .dark {
     --background: 210 25% 6%;
     --foreground: 220 13% 91%;
@@ -190,5 +194,120 @@ body {
 @layer base {
   * {
     @apply border-border;
+  }
+}
+
+/* Waving Character */
+.waving-character {
+  transition: transform 0.3s ease;
+}
+
+.waving-character:hover {
+  transform: scale(1.05);
+}
+
+.waving-character .arm-right {
+  transform-origin: 110px 150px;
+  /* shoulder */
+  transition: transform 0.2s ease;
+}
+
+.waving-character .wave-lines {
+  opacity: 0;
+  transform-origin: 200px 70px;
+  transition: opacity 0.2s ease;
+}
+
+/* Hover wave - more natural movement */
+.waving-character:hover .arm-right {
+  animation: naturalWave 1.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.waving-character:hover .wave-lines {
+  opacity: 0.8;
+  animation: waveLines 1.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Subtle body movement on hover */
+.waving-character:hover .head-circle,
+.waving-character:hover .body-line {
+  animation: bodySway 1.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes naturalWave {
+  0% {
+    transform: rotate(0deg) translateY(0px);
+  }
+
+  20% {
+    transform: rotate(-15deg) translateY(-5px);
+  }
+
+  40% {
+    transform: rotate(25deg) translateY(0px);
+  }
+
+  60% {
+    transform: rotate(-10deg) translateY(-3px);
+  }
+
+  80% {
+    transform: rotate(20deg) translateY(0px);
+  }
+
+  100% {
+    transform: rotate(0deg) translateY(0px);
+  }
+}
+
+@keyframes waveLines {
+  0% {
+    opacity: 0.6;
+    transform: translateY(0px) translateX(0px);
+  }
+
+  20% {
+    opacity: 1;
+    transform: translateY(-8px) translateX(-5px);
+  }
+
+  40% {
+    opacity: 0.8;
+    transform: translateY(-5px) translateX(5px);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(-8px) translateX(-3px);
+  }
+
+  80% {
+    opacity: 0.7;
+    transform: translateY(-4px) translateX(3px);
+  }
+
+  100% {
+    opacity: 0.6;
+    transform: translateY(0px) translateX(0px);
+  }
+}
+
+@keyframes bodySway {
+
+  0%,
+  100% {
+    transform: translateX(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateX(2px) rotate(1deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .waving-character:hover .arm-right,
+  .waving-character:hover .wave-lines {
+    animation: none;
   }
 }
