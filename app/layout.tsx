@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Caveat } from "next/font/google";
+import { Caveat, Inter } from "next/font/google";
 import "./globals.css";
 
 const caveat = Caveat({
@@ -9,13 +9,20 @@ const caveat = Caveat({
   display: "swap",
 });
 
+// Inter font for blog content readability
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Portfolio | Bahar Hamzeh",
   description: "Software Engineer",
   icons: {
-    icon: "/logo.svg",
-    shortcut: "/logo.svg",
-    apple: "/logo.svg",
+    icon: "/logo-black.svg",
+    shortcut: "/logo-black.svg",
+    apple: "/logo-black.svg",
   },
 };
 
@@ -25,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={caveat.variable}>
+    <html lang="en" className={`${caveat.variable} ${inter.variable}`}>
       <body className={caveat.className}>{children}</body>
     </html>
   );
