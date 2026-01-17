@@ -43,7 +43,7 @@ export default function Hero() {
       id="home"
       className="min-h-screen flex flex-col lg:flex-row relative bg-[#0B0F14] mt-6"
     >
-      <div className="flex-1 flex flex-col justify-center px-6 sm:px-8 md:px-12 lg:px-12 lg:pl-16 pt-20 sm:pt-24 md:pt-28 lg:pt-24 pb-2 sm:pb-4 md:pb-6 lg:pb-24 bg-[#0B0F14]">
+      <div className="flex-1 flex flex-col justify-center px-6 sm:px-8 md:px-12 lg:px-12 lg:pl-16 pt-20 sm:pt-24 md:pt-28 lg:pt-24 pb-2 sm:pb-4 md:pb-6 lg:pb-0 bg-[#0B0F14]">
         <div className="max-w-2xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

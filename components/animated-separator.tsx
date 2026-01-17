@@ -5,7 +5,7 @@ import { Binary } from "lucide-react";
 
 export default function AnimatedSeparator() {
   return (
-    <div className="my-4 flex flex-col items-center gap-4">
+    <div className="mt-2 mb-4 flex flex-col items-center gap-4">
       <motion.div
         initial={{ width: 0 }}
         whileInView={{ width: "33%" }}

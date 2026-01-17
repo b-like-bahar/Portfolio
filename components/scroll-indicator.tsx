@@ -44,7 +44,7 @@ export default function ScrollIndicator({
       initial={{ opacity: 0, y: -20 }}
       animate={hasShown ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
       transition={{ duration: 0.5 }}
-      className="flex flex-col items-center gap-2 py-4 cursor-pointer group"
+      className="flex flex-col items-center gap-2 pt-4 pb-0 cursor-pointer group"
       onClick={scrollToTarget}
     >
       <Text

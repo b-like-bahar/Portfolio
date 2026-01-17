@@ -68,7 +68,7 @@ export default function About() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-16"
+          className="mb-8"
         >
           <Heading2 className="section-title mb-4">About</Heading2>
         </motion.div>
