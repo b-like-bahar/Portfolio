@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import ContactOptions from "@/components/contact-options";
+import { Heading1, Heading2, Text } from "@/components/ui/typography";
 export default function Hero() {
   const smoothScrollTo = (element: HTMLElement, duration: number = 2000) => {
     const start = window.pageYOffset;
@@ -44,41 +45,45 @@ export default function Hero() {
     >
       <div className="flex-1 flex flex-col justify-center px-6 sm:px-8 md:px-12 lg:px-12 lg:pl-16 pt-20 sm:pt-24 md:pt-28 lg:pt-24 pb-2 sm:pb-4 md:pb-6 lg:pb-24 bg-[#0B0F14]">
         <div className="max-w-2xl">
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0 }}
-            className="text-base sm:text-lg md:text-xl lg:text-2xl text-[#8B8CF6] mb-2 text-bold"
           >
-            Hi,
-          </motion.p>
-          <motion.h1
+            <Text size="md" weight="bold" className="text-[#8B8CF6] mb-2">
+              Hi,
+            </Text>
+          </motion.div>
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-2 text-[#8B8CF6]"
           >
-            I'm Bahar Hamzeh
-          </motion.h1>
-          <motion.h2
+            <Heading1 className="mb-2 text-[#8B8CF6]">
+              I'm Bahar Hamzeh
+            </Heading1>
+          </motion.div>
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold mb-4 sm:mb-6 text-[#8B8CF6]"
           >
-            Software Engineer
-          </motion.h2>
-          <motion.p
+            <Heading2 className="mb-4 sm:mb-6 text-[#8B8CF6]">
+              Software Engineer
+            </Heading2>
+          </motion.div>
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-[#9CA3AF] mb-6 sm:mb-8 leading-relaxed max-w-xl"
           >
-            I design and build scalable web applications with a focus on quality
-            and usability. I care about clean abstractions, maintainable
-            systems, and writing code that’s tested, documented, and ready to
-            ship.
-          </motion.p>
+            <Text variant="muted" className="mb-6 sm:mb-8 max-w-xl">
+              I design and build scalable web applications with a focus on
+              quality and usability. I care about clean abstractions,
+              maintainable systems, and writing code that's tested, documented,
+              and ready to ship.
+            </Text>
+          </motion.div>
           <motion.button
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
