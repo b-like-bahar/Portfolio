@@ -59,7 +59,7 @@ export default function Navigation() {
           <div className="flex items-center justify-between">
             <div className="relative w-28 h-16 sm:w-32 sm:h-20 md:w-48 md:h-24 flex-shrink-0">
               <Image
-                src="/logo.svg"
+                src="/logo-white.svg"
                 alt="BaharHamzeh"
                 fill
                 className="object-contain"
