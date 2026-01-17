@@ -110,7 +110,11 @@ export default function Experience() {
             className="inline-flex items-center gap-2 text-[#9CA3AF] hover:text-[#8B8CF6] transition-colors duration-300 group"
           >
             <FileText size={20} className="group-hover:stroke-[#8B8CF6]" />
-            <Text as="span" size="md">
+            <Text
+              as="span"
+              size="md"
+              className="group-hover:text-[#8B8CF6] transition-colors duration-300"
+            >
               View full resume
             </Text>
             <ExternalLink
