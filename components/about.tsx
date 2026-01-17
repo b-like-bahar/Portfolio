@@ -114,10 +114,10 @@ export default function About() {
             <button
               onClick={handleScanClick}
               disabled={isScanning || isResetting || isDone}
-              className={`magic-scan-button group flex items-center gap-2 px-4 py-2 rounded-lg border transition-all duration-300 ${
+              className={`magic-scan-button group flex items-center gap-2 px-6 py-3 rounded-lg border transition-all duration-300 ${
                 isScanning || isResetting || isDone
                   ? "border-[#9CA3AF]/30 bg-[#111827] cursor-not-allowed opacity-70"
-                  : "border-[#9CA3AF]/30 bg-transparent hover:border-[#A5B4FC]/50 hover:bg-[#111827] cursor-pointer"
+                  : "border-[#8B8CF6]/60 bg-[#111827]/50 hover:border-[#8B8CF6] hover:bg-[#111827] cursor-pointer shadow-[0_0_15px_rgba(139,140,246,0.3)] hover:shadow-[0_0_25px_rgba(139,140,246,0.5)]"
               }`}
             >
               <motion.div
@@ -140,7 +140,7 @@ export default function About() {
                 ) : isDone ? (
                   <Check className="w-4 h-4 text-[#8B8CF6] group-hover:text-[#A5B4FC] transition-colors" />
                 ) : (
-                  <Play className="w-4 h-4 text-[#9CA3AF] group-hover:text-[#A5B4FC]" />
+                  <Play className="w-4 h-4 text-[#8B8CF6] group-hover:text-[#A5B4FC]" />
                 )}
               </motion.div>
               <Text as="span" size="md">
