@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { FileText, ExternalLink } from "lucide-react";
 import Link from "next/link";
+import { Heading2, Heading3, Text } from "@/components/ui/typography";
 
 type ExperienceItem = {
   title: string;
@@ -35,13 +36,11 @@ export default function Experience() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <h2 className="section-title text-5xl md:text-6xl font-bold text-[#E5E7EB] mb-4">
-            Experience
-          </h2>
-          <p className="text-base md:text-2xl text-[#9CA3AF]">
+          <Heading2 className="section-title mb-4">Experience</Heading2>
+          <Text variant="muted">
             A journey through my professional growth, building products and
             solving problems across different teams and technologies.
-          </p>
+          </Text>
         </motion.div>
 
         <div className="space-y-8">
@@ -78,19 +77,21 @@ export default function Experience() {
                 }}
               >
                 <div className="mb-6">
-                  <h3 className="text-2xl md:text-3xl font-bold mb-2 text-[#E5E7EB]">
+                  <Heading3 className="mb-2">
                     {exp.title.split(" | ")[0]}
-                  </h3>
-                  <p className="text-xl md:text-2xl font-semibold text-[#8B8CF6] mb-2">
+                  </Heading3>
+                  <Text
+                    size="lg"
+                    weight="semibold"
+                    className="text-[#8B8CF6] mb-2"
+                  >
                     {exp.title.split(" | ")[1]}
-                  </p>
-                  <p className="text-base md:text-lg text-[#9CA3AF]">
+                  </Text>
+                  <Text size="sm" variant="muted">
                     {exp.period}
-                  </p>
+                  </Text>
                 </div>
-                <p className="text-base md:text-lg text-[#E5E7EB] leading-relaxed">
-                  {exp.description}
-                </p>
+                <Text>{exp.description}</Text>
               </div>
             </motion.div>
           ))}
@@ -109,7 +110,9 @@ export default function Experience() {
             className="inline-flex items-center gap-2 text-[#9CA3AF] hover:text-[#8B8CF6] transition-colors duration-300 group"
           >
             <FileText size={20} className="group-hover:stroke-[#8B8CF6]" />
-            <span className="text-base md:text-lg">View full resume</span>
+            <Text as="span" size="md">
+              View full resume
+            </Text>
             <ExternalLink
               size={16}
               className="group-hover:stroke-[#8B8CF6] opacity-70"
