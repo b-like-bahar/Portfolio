@@ -143,7 +143,7 @@ export default function About() {
                   <Play className="w-4 h-4 text-[#9CA3AF] group-hover:text-[#A5B4FC]" />
                 )}
               </motion.div>
-              <span className="text-base text-[#E5E7EB]">
+              <Text as="span" size="md">
                 {isScanning
                   ? "Scanning..."
                   : isResetting
@@ -151,7 +151,7 @@ export default function About() {
                     : isDone
                       ? "No Bugs Found. Success!"
                       : "Click to see magic"}
-              </span>
+              </Text>
             </button>
           </div>
         </div>
