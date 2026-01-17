@@ -9,6 +9,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { Heading2, Text } from "@/components/ui/typography";
 
 const icons = [
   // Web fundamentals
@@ -135,13 +136,11 @@ export default function Skills() {
     <section id="skills" className="py-32 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="mb-20">
-          <h2 className="section-title text-5xl md:text-6xl font-bold text-[#E5E7EB] mb-4">
-            Skills
-          </h2>
-          <p className="text-base md:text-2xl text-[#9CA3AF]">
+          <Heading2 className="section-title mb-4">Skills</Heading2>
+          <Text variant="muted">
             A snapshot of the technologies and tools I use to design, build,
             test, and ship production-ready web applications.
-          </p>
+          </Text>
         </div>
         <div className="flex justify-center mb-8">
           <button
@@ -225,10 +224,13 @@ export default function Skills() {
           </div>
         </TooltipProvider>
 
-        <p className="text-center md:text-center lg:text-right text-base md:text-lg lg:text-xl xl:text-2xl text-[#9CA3AF] mt-16 max-w-2xl mx-auto lg:ml-auto lg:mr-0 italic">
+        <Text
+          variant="muted"
+          className="text-center md:text-center lg:text-right mt-16 max-w-2xl mx-auto lg:ml-auto lg:mr-0 italic"
+        >
           This stack continues to evolve through practice, curiosity, and
           real-world work.
-        </p>
+        </Text>
       </div>
     </section>
   );
