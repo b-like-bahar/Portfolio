@@ -14,20 +14,25 @@ export default function ScrollIndicator({
   targetId,
   label = "Scroll",
 }: ScrollIndicatorProps) {
-  const [isVisible, setIsVisible] = useState(true);
+  const [hasShown, setHasShown] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const target = document.getElementById(targetId);
-      if (target) {
+      if (target && !hasShown) {
         const rect = target.getBoundingClientRect();
-        setIsVisible(rect.top > window.innerHeight * 0.5);
+        // Show indicator when target section is visible in viewport
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          setHasShown(true);
+        }
       }
     };
 
+    // Check initial state
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [targetId]);
+  }, [targetId, hasShown]);
 
   const scrollToTarget = () => {
     const target = document.getElementById(targetId);
@@ -36,13 +41,13 @@ export default function ScrollIndicator({
     }
   };
 
-  if (!isVisible) return null;
+  // Once shown, always render to prevent layout shifts
 
   return (
     <motion.div
       initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
+      animate={hasShown ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+      transition={{ duration: 0.5 }}
       className="flex flex-col items-center gap-2 py-4 cursor-pointer group"
       onClick={scrollToTarget}
     >
