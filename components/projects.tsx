@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ExternalLink, Github } from "lucide-react";
+import { Heading2, Heading4, Text } from "@/components/ui/typography";
 
 type Project = {
   id: number;
@@ -106,13 +107,11 @@ export default function Projects() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <h2 className="section-title text-5xl md:text-6xl font-bold text-[#E5E7EB] mb-4">
-            Projects
-          </h2>
-          <p className="text-base md:text-2xl text-[#9CA3AF]">
+          <Heading2 className="section-title mb-4">Projects</Heading2>
+          <Text variant="muted">
             A selection of my more recent projects. Hover to explore details,
             tech stack, and live demos
-          </p>
+          </Text>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 md:gap-10">
@@ -152,37 +151,39 @@ export default function Projects() {
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center bg-[#0B0F14]">
-                    <span className="text-[#9CA3AF] text-base md:text-lg lg:text-xl xl:text-2xl">
+                    <Text as="span" variant="muted" size="md">
                       Project Image
-                    </span>
+                    </Text>
                   </div>
                 )}
               </div>
-              <h4 className="text-2xl md:text-3xl font-semibold mb-3 text-[#E5E7EB] group-hover:text-[#8B8CF6] transition-colors duration-300">
+              <Heading4 className="mb-3 group-hover:text-[#8B8CF6] transition-colors duration-300">
                 {project.title}
-              </h4>
+              </Heading4>
 
               {/* Overlay that slides up on hover with title, description, and links */}
               <div className="absolute inset-0 bg-[#111827] p-6 md:p-8 rounded-lg transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out flex flex-col overflow-y-auto">
-                <h4 className="text-2xl md:text-3xl font-semibold mb-4 text-[#8B8CF6]">
+                <Heading4 className="mb-4 text-[#8B8CF6]">
                   {project.title}
-                </h4>
-                <p className="text-base md:text-lg lg:text-xl xl:text-2xl text-[#9CA3AF] mb-4 leading-relaxed">
+                </Heading4>
+                <Text variant="muted" className="mb-4">
                   {project.description}
-                </p>
+                </Text>
                 {project.technologies && project.technologies.length > 0 && (
                   <div className="mb-4">
-                    <p className="text-base md:text-lg lg:text-xl xl:text-2xl font-medium text-[#E5E7EB] mb-3">
+                    <Text weight="medium" className="mb-3">
                       Technologies:
-                    </p>
+                    </Text>
                     <div className="flex flex-wrap gap-2">
                       {project.technologies.map((tech, index) => (
-                        <span
+                        <Text
                           key={index}
-                          className="px-3 py-1.5 text-base md:text-lg lg:text-xl xl:text-2xl bg-[#0B0F14] text-[#E5E7EB] rounded border border-[#111827]"
+                          as="span"
+                          size="sm"
+                          className="px-3 py-1.5 bg-[#0B0F14] rounded border border-[#111827]"
                         >
                           {tech}
-                        </span>
+                        </Text>
                       ))}
                     </div>
                   </div>
@@ -191,19 +192,19 @@ export default function Projects() {
                   <Link
                     href={project.gitHubLink}
                     target="_blank"
-                    className="flex items-center gap-2 text-base md:text-lg lg:text-xl xl:text-2xl text-[#9CA3AF] hover:text-[#8B8CF6] transition-colors duration-300"
+                    className="flex items-center gap-2 text-base text-[#9CA3AF] hover:text-[#8B8CF6] transition-colors duration-300"
                   >
                     <Github size={20} />
-                    <span>Code</span>
+                    <Text as="span">Code</Text>
                   </Link>
                   {project.liveLink && (
                     <Link
                       href={project.liveLink}
                       target="_blank"
-                      className="flex items-center gap-2 text-base md:text-lg lg:text-xl xl:text-2xl text-[#9CA3AF] hover:text-[#8B8CF6] transition-colors duration-300"
+                      className="flex items-center gap-2 text-[#9CA3AF] hover:text-[#8B8CF6] transition-colors duration-300"
                     >
                       <ExternalLink size={20} />
-                      <span>Live</span>
+                      <Text as="span">Live</Text>
                     </Link>
                   )}
                 </div>
