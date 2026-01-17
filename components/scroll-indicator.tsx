@@ -21,7 +21,6 @@ export default function ScrollIndicator({
       const target = document.getElementById(targetId);
       if (target && !hasShown) {
         const rect = target.getBoundingClientRect();
-        // Show indicator when target section is visible in viewport
         if (rect.top < window.innerHeight && rect.bottom > 0) {
           setHasShown(true);
         }
@@ -40,9 +39,6 @@ export default function ScrollIndicator({
       target.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
-
-  // Once shown, always render to prevent layout shifts
-
   return (
     <motion.div
       initial={{ opacity: 0, y: -20 }}
