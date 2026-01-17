@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 import { Play, Check, RefreshCw } from "lucide-react";
+import { Heading2, Text } from "@/components/ui/typography";
 
 const paragraphs = [
   "I'm a software engineer with a physics background, which explains my patience for complex problems and my low tolerance for vague bugs. I switched from research to web development because I like building systems people can interact with, not just simulate.",
@@ -45,13 +46,12 @@ export default function About() {
     setScanState("scanning");
     timeoutRef.current = setTimeout(() => {
       setScanState("done");
-      // Show "resetting" state briefly before going back to idle
       timeoutRef.current = setTimeout(() => {
         setScanState("resetting");
         timeoutRef.current = setTimeout(() => {
           setScanState("idle");
         }, 800);
-      }, 1200);
+      }, 3000);
     }, 2500);
   };
 
@@ -68,15 +68,13 @@ export default function About() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <h2 className="section-title text-5xl md:text-6xl font-bold text-[#E5E7EB] mb-4">
-            About
-          </h2>
+          <Heading2 className="section-title mb-4">About</Heading2>
         </motion.div>
 
         <div className="max-w-4xl mx-auto">
           <div
             ref={scanTargetRef}
-            className="aboutScanTarget space-y-6 text-base md:text-lg lg:text-xl xl:text-2xl text-[#E5E7EB] leading-relaxed relative overflow-hidden mb-10"
+            className="aboutScanTarget space-y-6 relative mb-10"
           >
             {isScanning && contentHeight > 0 && (
               <motion.div
@@ -89,12 +87,12 @@ export default function About() {
                   times: [0, 0.33, 0.66, 1],
                   ease: "easeInOut",
                 }}
-                className="scan-line absolute left-0 right-0 h-1 z-10 pointer-events-none"
+                className="scan-line absolute left-0 right-0 h-1 z-50 pointer-events-none"
               />
             )}
 
             {paragraphs.map((text, index) => (
-              <motion.p
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, x: -30, scale: 0.95 }}
                 whileInView={{ opacity: 1, x: 0, scale: 1 }}
@@ -106,8 +104,8 @@ export default function About() {
                   stiffness: 100,
                 }}
               >
-                {text}
-              </motion.p>
+                <Text>{text}</Text>
+              </motion.div>
             ))}
           </div>
           <div className="flex justify-center items-center gap-3">
@@ -151,7 +149,7 @@ export default function About() {
                   : isResetting
                     ? "Resetting..."
                     : isDone
-                      ? "Nothing broke. Success!"
+                      ? "No Bugs Found. Success!"
                       : "Click to see magic"}
               </span>
             </button>
