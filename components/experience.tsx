@@ -28,7 +28,7 @@ const experiences: ExperienceItem[] = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-32 px-6">
+    <section id="experience" className="py-16 px-6">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -53,13 +53,8 @@ export default function Experience() {
               transition={{ delay: index * 0.1 }}
               className="relative pl-12 md:pl-16"
             >
-              {/* Timeline line */}
               <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#111827] rounded-full"></div>
-
-              {/* Timeline dot with glow */}
               <div className="absolute left-0 top-0 w-4 h-4 -translate-x-[6px] rounded-full bg-[#8B8CF6] border-2 border-[#0B0F14] shadow-[0_0_12px_rgba(139,140,246,0.4)]"></div>
-
-              {/* Card container */}
               <div
                 className="bg-[#111827] p-6 md:p-8 rounded-lg border border-[#111827] hover:border-[#8B8CF6] transition-all duration-300"
                 style={{
