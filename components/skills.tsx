@@ -159,9 +159,9 @@ export default function Skills() {
                   : "text-[#9CA3AF] group-hover:text-[#A5B4FC]"
               }`}
             />
-            <span className="text-base text-[#E5E7EB]">
+            <Text as="span" size="md">
               {isAnimating ? "Lighting up..." : "Click here to light them up!"}
-            </span>
+            </Text>
           </button>
         </div>
 
