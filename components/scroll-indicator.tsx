@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Text } from "@/components/ui/typography";
 
 type ScrollIndicatorProps = {
   targetId: string;
@@ -45,9 +46,14 @@ export default function ScrollIndicator({
       className="flex flex-col items-center gap-2 py-4 cursor-pointer group"
       onClick={scrollToTarget}
     >
-      <span className="text-base md:text-lg lg:text-xl xl:text-2xl text-[#9CA3AF] group-hover:text-[#8B8CF6] transition-colors">
+      <Text
+        as="span"
+        variant="muted"
+        size="md"
+        className="md:text-base lg:text-lg group-hover:text-[#8B8CF6] transition-colors"
+      >
         {label}
-      </span>
+      </Text>
       <motion.div
         animate={{
           y: [0, 8, 0],
