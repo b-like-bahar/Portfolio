@@ -21,8 +21,6 @@ export default function Navigation() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-
-      // Update active section based on scroll position
       const sections = navItems.map((item) => item.href.substring(1));
       const current = sections.find((section) => {
         const element = document.getElementById(section);
@@ -98,8 +96,7 @@ export default function Navigation() {
           </div>
         </div>
       </motion.nav>
-
-      {/* Mobile Menu Overlay - Slides from Right */}
+      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
