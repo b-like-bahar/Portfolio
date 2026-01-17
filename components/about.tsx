@@ -34,7 +34,9 @@ export default function About() {
   }, []);
 
   const handleScanClick = () => {
-    if (scanState === "scanning") return;
+    // Only allow clicking when in idle state
+    if (scanState !== "idle") return;
+
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
@@ -111,13 +113,11 @@ export default function About() {
           <div className="flex justify-center items-center gap-3">
             <button
               onClick={handleScanClick}
-              disabled={isScanning || isResetting}
+              disabled={isScanning || isResetting || isDone}
               className={`magic-scan-button group flex items-center gap-2 px-4 py-2 rounded-lg border transition-all duration-300 ${
-                isScanning || isResetting
+                isScanning || isResetting || isDone
                   ? "border-[#9CA3AF]/30 bg-[#111827] cursor-not-allowed opacity-70"
-                  : isDone
-                    ? "border-[#8B8CF6] bg-[#111827] hover:bg-[#1a1f2e] hover:border-[#A5B4FC] cursor-pointer"
-                    : "border-[#9CA3AF]/30 bg-transparent hover:border-[#A5B4FC]/50 hover:bg-[#111827] cursor-pointer"
+                  : "border-[#9CA3AF]/30 bg-transparent hover:border-[#A5B4FC]/50 hover:bg-[#111827] cursor-pointer"
               }`}
             >
               <motion.div
