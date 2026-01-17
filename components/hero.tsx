@@ -50,7 +50,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0 }}
           >
-            <Text size="md" weight="bold" className="text-[#8B8CF6] mb-2">
+            <Text size="lg" weight="bold" className="text-[#8B8CF6] mb-2">
               Hi,
             </Text>
           </motion.div>
@@ -77,7 +77,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <Text variant="muted" className="mb-6 sm:mb-8 max-w-xl">
+            <Text variant="muted" size="lg" className="mb-6 sm:mb-8 max-w-xl">
               I design and build scalable web applications with a focus on
               quality and usability. I care about clean abstractions,
               maintainable systems, and writing code that's tested, documented,
@@ -89,7 +89,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             onClick={handleContactClick}
-            className="px-6 sm:px-8 py-3 sm:py-4 bg-[#8B8CF6] hover:bg-[#A5B4FC] text-[#0B0F14] font-semibold rounded-lg transition-colors duration-300 mb-8 sm:mb-12 text-base"
+            className="px-6 sm:px-8 py-3 sm:py-4 bg-[#8B8CF6] hover:bg-[#A5B4FC] text-[#0B0F14] font-semibold rounded-lg transition-colors duration-300 mb-8 sm:mb-12 text-lg"
           >
             Let's talk
           </motion.button>

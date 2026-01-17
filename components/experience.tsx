@@ -91,7 +91,7 @@ export default function Experience() {
                     {exp.period}
                   </Text>
                 </div>
-                <Text>{exp.description}</Text>
+                <Text size="lg">{exp.description}</Text>
               </div>
             </motion.div>
           ))}

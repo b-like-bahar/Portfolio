@@ -166,7 +166,7 @@ export default function Projects() {
                 <Heading4 className="mb-4 text-[#8B8CF6]">
                   {project.title}
                 </Heading4>
-                <Text variant="muted" className="mb-4">
+                <Text variant="muted" size="lg" className="mb-4">
                   {project.description}
                 </Text>
                 {project.technologies && project.technologies.length > 0 && (

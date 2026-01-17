@@ -106,7 +106,7 @@ export default function About() {
                   stiffness: 100,
                 }}
               >
-                <Text>{text}</Text>
+                <Text size="lg">{text}</Text>
               </motion.div>
             ))}
           </div>
