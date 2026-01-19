@@ -13,6 +13,116 @@
  */
 
 // Source: cms/schema.json
+export type CategoryReference = {
+  _ref: string;
+  _type: "reference";
+  _weak?: boolean;
+  [internalGroqTypeReferenceTo]?: "category";
+};
+
+export type SanityImageAssetReference = {
+  _ref: string;
+  _type: "reference";
+  _weak?: boolean;
+  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+};
+
+export type Post = {
+  _id: string;
+  _type: "post";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  slug?: Slug;
+  publishedAt?: string;
+  category?: CategoryReference;
+  description?: string;
+  image?: {
+    asset?: SanityImageAssetReference;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  body?: Array<
+    | {
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?:
+          | "normal"
+          | "h1"
+          | "h2"
+          | "h3"
+          | "h4"
+          | "h5"
+          | "h6"
+          | "blockquote";
+        listItem?: "bullet" | "number";
+        markDefs?: Array<{
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+      }
+    | {
+        asset?: SanityImageAssetReference;
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        caption?: string;
+        _type: "image";
+        _key: string;
+      }
+    | {
+        url?: string;
+        caption?: string;
+        _type: "video";
+        _key: string;
+      }
+  >;
+};
+
+export type SanityImageCrop = {
+  _type: "sanity.imageCrop";
+  top?: number;
+  bottom?: number;
+  left?: number;
+  right?: number;
+};
+
+export type SanityImageHotspot = {
+  _type: "sanity.imageHotspot";
+  x?: number;
+  y?: number;
+  height?: number;
+  width?: number;
+};
+
+export type Category = {
+  _id: string;
+  _type: "category";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  slug?: Slug;
+};
+
+export type Slug = {
+  _type: "slug";
+  current?: string;
+  source?: string;
+};
+
 export type SanityImagePaletteSwatch = {
   _type: "sanity.imagePaletteSwatch";
   background?: string;
@@ -49,22 +159,6 @@ export type SanityImageMetadata = {
   thumbHash?: string;
   hasAlpha?: boolean;
   isOpaque?: boolean;
-};
-
-export type SanityImageHotspot = {
-  _type: "sanity.imageHotspot";
-  x?: number;
-  y?: number;
-  height?: number;
-  width?: number;
-};
-
-export type SanityImageCrop = {
-  _type: "sanity.imageCrop";
-  top?: number;
-  bottom?: number;
-  left?: number;
-  right?: number;
 };
 
 export type SanityFileAsset = {
@@ -126,24 +220,22 @@ export type Geopoint = {
   alt?: number;
 };
 
-export type Slug = {
-  _type: "slug";
-  current?: string;
-  source?: string;
-};
-
 export type AllSanitySchemaTypes =
+  | CategoryReference
+  | SanityImageAssetReference
+  | Post
+  | SanityImageCrop
+  | SanityImageHotspot
+  | Category
+  | Slug
   | SanityImagePaletteSwatch
   | SanityImagePalette
   | SanityImageDimensions
   | SanityImageMetadata
-  | SanityImageHotspot
-  | SanityImageCrop
   | SanityFileAsset
   | SanityAssetSourceData
   | SanityImageAsset
-  | Geopoint
-  | Slug;
+  | Geopoint;
 
 export declare const internalGroqTypeReferenceTo: unique symbol;
 
@@ -156,17 +248,97 @@ type ArrayOf<T> = Array<
 // Source: lib/sanity/queries.ts
 // Variable: BLOG_LIST_QUERY
 // Query: *[  _type == "post"   && defined(slug.current)  ] | order(publishedAt desc) {    _id,    title,    publishedAt,    slug,    category -> {name},    image,  }
-export type BLOG_LIST_QUERY_RESULT = Array<never>;
+export type BLOG_LIST_QUERY_RESULT = Array<{
+  _id: string;
+  title: string | null;
+  publishedAt: string | null;
+  slug: Slug | null;
+  category: {
+    name: string | null;
+  } | null;
+  image: {
+    asset?: SanityImageAssetReference;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  } | null;
+}>;
 
 // Source: lib/sanity/queries.ts
 // Variable: BLOG_POST_QUERY
 // Query: *[  _type == "post"   && defined(slug.current)   && slug.current == $slug  ] | order(publishedAt desc) [0] {    _id,    title,    slug,    publishedAt,    category -> {name, slug},    description,    image,    body  }
-export type BLOG_POST_QUERY_RESULT = null;
+export type BLOG_POST_QUERY_RESULT = {
+  _id: string;
+  title: string | null;
+  slug: Slug | null;
+  publishedAt: string | null;
+  category: {
+    name: string | null;
+    slug: Slug | null;
+  } | null;
+  description: string | null;
+  image: {
+    asset?: SanityImageAssetReference;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  } | null;
+  body: Array<
+    | {
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?:
+          | "blockquote"
+          | "h1"
+          | "h2"
+          | "h3"
+          | "h4"
+          | "h5"
+          | "h6"
+          | "normal";
+        listItem?: "bullet" | "number";
+        markDefs?: Array<{
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+      }
+    | {
+        asset?: SanityImageAssetReference;
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        alt?: string;
+        caption?: string;
+        _type: "image";
+        _key: string;
+      }
+    | {
+        url?: string;
+        caption?: string;
+        _type: "video";
+        _key: string;
+      }
+  > | null;
+} | null;
 
 // Source: lib/sanity/queries.ts
 // Variable: CATEGORY_LIST_QUERY
 // Query: *[  _type == "category"   && defined(slug.current)  ] | order(name asc) {    _id,    name,    slug  }
-export type CATEGORY_LIST_QUERY_RESULT = Array<never>;
+export type CATEGORY_LIST_QUERY_RESULT = Array<{
+  _id: string;
+  name: string | null;
+  slug: Slug | null;
+}>;
 
 // Query TypeMap
 import "@sanity/client";
