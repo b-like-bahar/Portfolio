@@ -7,6 +7,7 @@ export default defineCliConfig({
   },
   deployment: {
     autoUpdates: true,
+    appId: "ne1wshr8ityrk70sakix5wuo",
   },
   typegen: {
     path: "./lib/sanity/**/*.{ts,tsx}",
