@@ -3,45 +3,63 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navItems = [
-  { name: "home", href: "#home" },
-  { name: "about", href: "#about" },
-  { name: "skills", href: "#skills" },
-  { name: "projects", href: "#projects" },
-  { name: "experience", href: "#experience" },
-  { name: "contact", href: "#contact" },
+  { name: "about", href: "#about", isHash: true },
+  { name: "skills", href: "#skills", isHash: true },
+  { name: "projects", href: "#projects", isHash: true },
+  { name: "experience", href: "#experience", isHash: true },
+  { name: "blog", href: "/blog", isHash: false },
+  { name: "contact", href: "#contact", isHash: true },
 ];
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-      const sections = navItems.map((item) => item.href.substring(1));
-      const current = sections.find((section) => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
-        }
-        return false;
-      });
-      if (current) setActiveSection(current);
+      if (pathname === "/") {
+        const sections = navItems
+          .filter((item) => item.isHash)
+          .map((item) => item.href.substring(1));
+        const current = sections.find((section) => {
+          const element = document.getElementById(section);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            return rect.top <= 100 && rect.bottom >= 100;
+          }
+          return false;
+        });
+        if (current) setActiveSection(current);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
+  };
+
+  const handleNavClick = (item: (typeof navItems)[number]) => {
+    if (item.isHash) {
+      if (pathname?.startsWith("/blog")) {
+        window.location.href = `/${item.href}`;
+      } else {
+        scrollToSection(item.href);
+      }
+    }
+    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -57,7 +75,16 @@ export default function Navigation() {
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-6 md:px-8 lg:pl-4 lg:pr-8">
           <div className="flex items-center justify-between">
-            <div className="relative w-28 h-16 sm:w-32 sm:h-20 md:w-48 md:h-24 flex-shrink-0">
+            <Link
+              href="/"
+              onClick={(e) => {
+                if (pathname === "/") {
+                  e.preventDefault();
+                  scrollToSection("#home");
+                }
+              }}
+              className="relative w-28 h-16 sm:w-32 sm:h-20 md:w-48 md:h-24 flex-shrink-0"
+            >
               <Image
                 src="/logo-white.svg"
                 alt="BaharHamzeh"
@@ -65,21 +92,44 @@ export default function Navigation() {
                 className="object-contain"
                 priority
               />
-            </div>
-            <div className="hidden md:flex items-center gap-8">
-              {navItems.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => scrollToSection(item.href)}
-                  className={`text-base uppercase tracking-wider transition-colors ${
-                    activeSection === item.href.substring(1)
-                      ? "text-[#E5E7EB]"
-                      : "text-[#9CA3AF] hover:text-[#E5E7EB]"
-                  }`}
-                >
-                  {item.name}
-                </button>
-              ))}
+            </Link>
+            <div className="hidden md:flex items-center gap-6">
+              {navItems.map((item) => {
+                const isActive =
+                  item.isHash && pathname === "/"
+                    ? activeSection === item.href.substring(1)
+                    : !item.isHash && pathname?.startsWith(item.href);
+
+                if (item.isHash) {
+                  return (
+                    <button
+                      key={item.name}
+                      onClick={() => handleNavClick(item)}
+                      className={`text-base uppercase tracking-wider transition-colors ${
+                        isActive
+                          ? "text-[#E5E7EB]"
+                          : "text-[#9CA3AF] hover:text-[#E5E7EB]"
+                      }`}
+                    >
+                      {item.name}
+                    </button>
+                  );
+                } else {
+                  return (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className={`text-base uppercase tracking-wider transition-colors ${
+                        isActive
+                          ? "text-[#E5E7EB]"
+                          : "text-[#9CA3AF] hover:text-[#E5E7EB]"
+                      }`}
+                    >
+                      {item.name}
+                    </Link>
+                  );
+                }
+              })}
             </div>
             <div className="md:hidden">
               <button
@@ -119,22 +169,43 @@ export default function Navigation() {
       >
         <div className="flex flex-col h-full p-6 pt-28">
           <div className="flex flex-col gap-6">
-            {navItems.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => {
-                  scrollToSection(item.href);
-                  setIsMobileMenuOpen(false);
-                }}
-                className={`text-right text-base uppercase tracking-wider transition-colors ${
-                  activeSection === item.href.substring(1)
-                    ? "text-[#E5E7EB]"
-                    : "text-[#9CA3AF] hover:text-[#E5E7EB]"
-                }`}
-              >
-                {item.name}
-              </button>
-            ))}
+            {navItems.map((item) => {
+              const isActive =
+                item.isHash && pathname === "/"
+                  ? activeSection === item.href.substring(1)
+                  : !item.isHash && pathname?.startsWith(item.href);
+
+              if (item.isHash) {
+                return (
+                  <button
+                    key={item.name}
+                    onClick={() => handleNavClick(item)}
+                    className={`text-right text-base uppercase tracking-wider transition-colors ${
+                      isActive
+                        ? "text-[#E5E7EB]"
+                        : "text-[#9CA3AF] hover:text-[#E5E7EB]"
+                    }`}
+                  >
+                    {item.name}
+                  </button>
+                );
+              } else {
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`text-right text-base uppercase tracking-wider transition-colors ${
+                      isActive
+                        ? "text-[#E5E7EB]"
+                        : "text-[#9CA3AF] hover:text-[#E5E7EB]"
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                );
+              }
+            })}
           </div>
         </div>
       </motion.div>
