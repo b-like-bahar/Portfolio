@@ -88,21 +88,6 @@ export type Post = {
         _key: string;
       }
     | {
-        code?: string;
-        language?:
-          | "javascript"
-          | "typescript"
-          | "python"
-          | "html"
-          | "css"
-          | "json"
-          | "bash"
-          | "text";
-        filename?: string;
-        _type: "code";
-        _key: string;
-      }
-    | {
         style?: "default" | "dashed" | "dotted";
         _type: "separator";
         _key: string;
@@ -328,21 +313,6 @@ export type BLOG_POST_QUERY_RESULT = {
         }>;
         level?: number;
         _type: "block";
-        _key: string;
-      }
-    | {
-        code?: string;
-        language?:
-          | "bash"
-          | "css"
-          | "html"
-          | "javascript"
-          | "json"
-          | "python"
-          | "text"
-          | "typescript";
-        filename?: string;
-        _type: "code";
         _key: string;
       }
     | {
