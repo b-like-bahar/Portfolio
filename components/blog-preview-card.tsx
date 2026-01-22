@@ -29,7 +29,7 @@ export function BlogPreviewCard({
   return (
     <Link href={`blog/${slug.current}`} className="group block h-full">
       <div
-        className="h-full bg-[#111827] p-4 md:p-6 rounded-lg border border-[#111827] hover:border-[#8B8CF6] transition-all duration-300 overflow-hidden flex flex-col"
+        className="h-full bg-[#111827] rounded-lg border border-[#111827] hover:border-[#8B8CF6] transition-all duration-300 overflow-hidden flex flex-col pt-4 md:pt-6"
         style={{
           boxShadow: "0 0 0 0 rgba(139, 140, 246, 0)",
         }}
@@ -44,39 +44,40 @@ export function BlogPreviewCard({
         }}
       >
         {imageUrl && (
-          <div className="relative w-full aspect-video rounded-lg mb-3 md:mb-4 overflow-hidden">
+          <div className="relative w-full aspect-video overflow-hidden bg-[#111827]">
             <Image
               src={imageUrl}
               alt={title}
               fill
               sizes={imageSizes}
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
+              className="object-contain transition-transform duration-300 ease-out scale-110 group-hover:scale-[1.18]"
             />
           </div>
         )}
+        <div className="p-4 md:p-6 flex flex-col flex-1">
+          <Heading4 className="mb-2 md:mb-3 mt-3 md:mt-4 group-hover:text-[#8B8CF6] transition-colors duration-300 break-words">
+            {title}
+          </Heading4>
 
-        <Heading4 className="mb-2 md:mb-3 group-hover:text-[#8B8CF6] transition-colors duration-300 break-words">
-          {title}
-        </Heading4>
+          {category?.name && (
+            <Text
+              size="sm"
+              className="mb-2 md:mb-3 px-2 md:px-3 py-1 md:py-1.5 bg-[#0B0F14] rounded border border-[#111827] text-[#8B8CF6] inline-block w-fit text-xs md:text-sm"
+            >
+              {category.name}
+            </Text>
+          )}
 
-        {category?.name && (
-          <Text
-            size="sm"
-            className="mb-2 md:mb-3 px-2 md:px-3 py-1 md:py-1.5 bg-[#0B0F14] rounded border border-[#111827] text-[#8B8CF6] inline-block w-fit text-xs md:text-sm"
-          >
-            {category.name}
-          </Text>
-        )}
-
-        {publishedAt && (
-          <Text
-            size="sm"
-            variant="muted"
-            className="mt-auto text-xs md:text-sm"
-          >
-            {format(new Date(publishedAt), "MMMM d, yyyy")}
-          </Text>
-        )}
+          {publishedAt && (
+            <Text
+              size="sm"
+              variant="muted"
+              className="mt-auto text-xs md:text-sm"
+            >
+              {format(new Date(publishedAt), "MMMM d, yyyy")}
+            </Text>
+          )}
+        </div>
       </div>
     </Link>
   );
