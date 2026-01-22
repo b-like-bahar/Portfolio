@@ -72,7 +72,7 @@ export default function BlogPostClientPage({
                     alt={post.title ?? "Blog image"}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 768px"
-                    className="object-cover"
+                    className="object-contain"
                     priority
                   />
                 </AspectRatio>
@@ -213,7 +213,7 @@ export default function BlogPostClientPage({
                                     alt={value.alt || "Blog post image"}
                                     fill
                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 768px"
-                                    className="object-cover"
+                                    className="object-contain"
                                   />
                                 </AspectRatio>
                               </div>
