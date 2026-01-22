@@ -88,6 +88,26 @@ export type Post = {
         _type: "video";
         _key: string;
       }
+    | {
+        code?: string;
+        language?:
+          | "javascript"
+          | "typescript"
+          | "python"
+          | "html"
+          | "css"
+          | "json"
+          | "bash"
+          | "text";
+        filename?: string;
+        _type: "code";
+        _key: string;
+      }
+    | {
+        style?: "default" | "dashed" | "dotted";
+        _type: "separator";
+        _key: string;
+      }
   >;
 };
 
@@ -267,7 +287,7 @@ export type BLOG_LIST_QUERY_RESULT = Array<{
 
 // Source: lib/sanity/queries.ts
 // Variable: BLOG_POST_QUERY
-// Query: *[  _type == "post"   && defined(slug.current)   && slug.current == $slug  ] | order(publishedAt desc) [0] {    _id,    title,    slug,    publishedAt,    category -> {name, slug},    description,    image,    body  }
+// Query: *[  _type == "post"   && defined(slug.current)   && slug.current == $slug  ] | order(publishedAt desc) [0] {    _id,    title,    slug,    publishedAt,    category -> {name, slug},    description,    image,    body[]{      ...,      _type == "image" => {        ...,        asset->,        alt,        caption,        hotspot,        crop      }    }  }
 export type BLOG_POST_QUERY_RESULT = {
   _id: string;
   title: string | null;
@@ -313,13 +333,54 @@ export type BLOG_POST_QUERY_RESULT = {
         _key: string;
       }
     | {
-        asset?: SanityImageAssetReference;
+        code?: string;
+        language?:
+          | "bash"
+          | "css"
+          | "html"
+          | "javascript"
+          | "json"
+          | "python"
+          | "text"
+          | "typescript";
+        filename?: string;
+        _type: "code";
+        _key: string;
+      }
+    | {
+        asset: {
+          _id: string;
+          _type: "sanity.imageAsset";
+          _createdAt: string;
+          _updatedAt: string;
+          _rev: string;
+          originalFilename?: string;
+          label?: string;
+          title?: string;
+          description?: string;
+          altText?: string;
+          sha1hash?: string;
+          extension?: string;
+          mimeType?: string;
+          size?: number;
+          assetId?: string;
+          uploadId?: string;
+          path?: string;
+          url?: string;
+          metadata?: SanityImageMetadata;
+          source?: SanityAssetSourceData;
+        } | null;
         media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        caption?: string;
+        hotspot: SanityImageHotspot | null;
+        crop: SanityImageCrop | null;
+        alt: string | null;
+        caption: string | null;
         _type: "image";
+        _key: string;
+      }
+    | {
+        style?: "dashed" | "default" | "dotted";
+        _type: "separator";
         _key: string;
       }
     | {
@@ -345,7 +406,7 @@ import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     '*[\n  _type == "post" \n  && defined(slug.current)\n  ] | order(publishedAt desc) {\n    _id,\n    title,\n    publishedAt,\n    slug,\n    category -> {name},\n    image,\n  }': BLOG_LIST_QUERY_RESULT;
-    '*[\n  _type == "post" \n  && defined(slug.current) \n  && slug.current == $slug\n  ] | order(publishedAt desc) [0] {\n    _id,\n    title,\n    slug,\n    publishedAt,\n    category -> {name, slug},\n    description,\n    image,\n    body\n  }': BLOG_POST_QUERY_RESULT;
+    '*[\n  _type == "post" \n  && defined(slug.current) \n  && slug.current == $slug\n  ] | order(publishedAt desc) [0] {\n    _id,\n    title,\n    slug,\n    publishedAt,\n    category -> {name, slug},\n    description,\n    image,\n    body[]{\n      ...,\n      _type == "image" => {\n        ...,\n        asset->,\n        alt,\n        caption,\n        hotspot,\n        crop\n      }\n    }\n  }': BLOG_POST_QUERY_RESULT;
     '*[\n  _type == "category" \n  && defined(slug.current)\n  ] | order(name asc) {\n    _id,\n    name,\n    slug\n  }': CATEGORY_LIST_QUERY_RESULT;
   }
 }
