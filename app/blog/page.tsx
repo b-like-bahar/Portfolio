@@ -9,7 +9,7 @@ import { urlFor } from "@/lib/sanity/utils";
 import { Suspense } from "react";
 
 export default async function BlogPage() {
-  const options = { next: { revalidate: 30 } };
+  const options = { next: { revalidate: 60 } };
   const blogPosts = await client.fetch<BLOG_LIST_QUERY_RESULT>(
     BLOG_LIST_QUERY,
     {},
