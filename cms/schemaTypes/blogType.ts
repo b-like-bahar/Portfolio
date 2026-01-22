@@ -29,10 +29,6 @@ export const postType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: "description",
-      type: "text",
-    }),
-    defineField({
       name: "image",
       type: "image",
       validation: (rule) => rule.required(),

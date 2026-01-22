@@ -25,7 +25,6 @@ export const BLOG_POST_QUERY = defineQuery(
     slug,
     publishedAt,
     category -> {name, slug},
-    description,
     image,
     body[]{
       ...,

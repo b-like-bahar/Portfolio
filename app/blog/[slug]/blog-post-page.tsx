@@ -41,15 +41,6 @@ export default function BlogPostClientPage({
                 <Heading1 className="text-4xl lg:text-5xl font-bold break-words mb-4 text-[#E5E7EB]">
                   {post.title}
                 </Heading1>
-                {post.description && (
-                  <Text
-                    size="lg"
-                    variant="muted"
-                    className="break-words max-w-3xl"
-                  >
-                    {post.description}
-                  </Text>
-                )}
               </div>
 
               <div className="flex flex-wrap items-center gap-4">

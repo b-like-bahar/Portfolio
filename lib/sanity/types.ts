@@ -37,7 +37,6 @@ export type Post = {
   slug?: Slug;
   publishedAt?: string;
   category?: CategoryReference;
-  description?: string;
   image?: {
     asset?: SanityImageAssetReference;
     media?: unknown;
@@ -287,7 +286,7 @@ export type BLOG_LIST_QUERY_RESULT = Array<{
 
 // Source: lib/sanity/queries.ts
 // Variable: BLOG_POST_QUERY
-// Query: *[  _type == "post"   && defined(slug.current)   && slug.current == $slug  ] | order(publishedAt desc) [0] {    _id,    title,    slug,    publishedAt,    category -> {name, slug},    description,    image,    body[]{      ...,      _type == "image" => {        ...,        asset->,        alt,        caption,        hotspot,        crop      }    }  }
+// Query: *[  _type == "post"   && defined(slug.current)   && slug.current == $slug  ] | order(publishedAt desc) [0] {    _id,    title,    slug,    publishedAt,    category -> {name, slug},    image,    body[]{      ...,      _type == "image" => {        ...,        asset->,        alt,        caption,        hotspot,        crop      }    }  }
 export type BLOG_POST_QUERY_RESULT = {
   _id: string;
   title: string | null;
@@ -297,7 +296,6 @@ export type BLOG_POST_QUERY_RESULT = {
     name: string | null;
     slug: Slug | null;
   } | null;
-  description: string | null;
   image: {
     asset?: SanityImageAssetReference;
     media?: unknown;
@@ -406,7 +404,7 @@ import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     '*[\n  _type == "post" \n  && defined(slug.current)\n  ] | order(publishedAt desc) {\n    _id,\n    title,\n    publishedAt,\n    slug,\n    category -> {name},\n    image,\n  }': BLOG_LIST_QUERY_RESULT;
-    '*[\n  _type == "post" \n  && defined(slug.current) \n  && slug.current == $slug\n  ] | order(publishedAt desc) [0] {\n    _id,\n    title,\n    slug,\n    publishedAt,\n    category -> {name, slug},\n    description,\n    image,\n    body[]{\n      ...,\n      _type == "image" => {\n        ...,\n        asset->,\n        alt,\n        caption,\n        hotspot,\n        crop\n      }\n    }\n  }': BLOG_POST_QUERY_RESULT;
+    '*[\n  _type == "post" \n  && defined(slug.current) \n  && slug.current == $slug\n  ] | order(publishedAt desc) [0] {\n    _id,\n    title,\n    slug,\n    publishedAt,\n    category -> {name, slug},\n    image,\n    body[]{\n      ...,\n      _type == "image" => {\n        ...,\n        asset->,\n        alt,\n        caption,\n        hotspot,\n        crop\n      }\n    }\n  }': BLOG_POST_QUERY_RESULT;
     '*[\n  _type == "category" \n  && defined(slug.current)\n  ] | order(name asc) {\n    _id,\n    name,\n    slug\n  }': CATEGORY_LIST_QUERY_RESULT;
   }
 }
