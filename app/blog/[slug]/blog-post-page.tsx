@@ -291,6 +291,21 @@ export default function BlogPostClientPage({
                           </div>
                         );
                       },
+                      separator: ({ value }) => {
+                        if (!value) return null;
+                        const style = value.style || "default";
+                        const borderStyle =
+                          style === "dashed"
+                            ? "border-dashed"
+                            : style === "dotted"
+                              ? "border-dotted"
+                              : "border-solid";
+                        return (
+                          <div
+                            className={`my-8 w-full border-t ${borderStyle} border-[#8B8CF6]/30`}
+                          />
+                        );
+                      },
                     },
                   }}
                 />
