@@ -162,6 +162,11 @@ export default function BlogPostClientPage({
                           {children}
                         </em>
                       ),
+                      code: ({ children }) => (
+                        <code className="block px-3 py-2 my-2 bg-[#111827] rounded-lg border border-[#111827] text-xs text-[#E5E7EB] font-mono whitespace-pre-wrap break-words">
+                          {children}
+                        </code>
+                      ),
                     },
                     list: {
                       bullet: ({ children }) => (
@@ -218,7 +223,7 @@ export default function BlogPostClientPage({
                                 </AspectRatio>
                               </div>
                               {value.caption && (
-                                <figcaption className="mt-3 text-center text-sm text-[#9CA3AF]">
+                                <figcaption className="mt-3 text-center text-base text-[#9CA3AF]">
                                   {value.caption}
                                 </figcaption>
                               )}
@@ -254,41 +259,6 @@ export default function BlogPostClientPage({
                               </figcaption>
                             )}
                           </figure>
-                        );
-                      },
-                      code: ({ value }) => {
-                        if (!value || !value.code) return null;
-                        return (
-                          <div className="my-8 rounded-lg overflow-hidden border border-[#111827] bg-[#111827]">
-                            {(value.filename || value.language) && (
-                              <div className="px-4 py-2 bg-[#0B0F14] border-b border-[#111827] flex items-center justify-between">
-                                <div className="flex items-center gap-2">
-                                  {value.filename && (
-                                    <Text
-                                      size="sm"
-                                      className="text-[#8B8CF6] font-mono"
-                                    >
-                                      {value.filename}
-                                    </Text>
-                                  )}
-                                  {value.language &&
-                                    value.language !== "text" && (
-                                      <Text
-                                        size="xs"
-                                        className="px-2 py-0.5 bg-[#111827] rounded text-[#9CA3AF]"
-                                      >
-                                        {value.language}
-                                      </Text>
-                                    )}
-                                </div>
-                              </div>
-                            )}
-                            <pre className="p-4 overflow-x-auto">
-                              <code className="text-sm text-[#E5E7EB] font-mono leading-relaxed whitespace-pre">
-                                {value.code}
-                              </code>
-                            </pre>
-                          </div>
                         );
                       },
                       separator: ({ value }) => {
