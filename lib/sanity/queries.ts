@@ -27,7 +27,17 @@ export const BLOG_POST_QUERY = defineQuery(
     category -> {name, slug},
     description,
     image,
-    body
+    body[]{
+      ...,
+      _type == "image" => {
+        ...,
+        asset->,
+        alt,
+        caption,
+        hotspot,
+        crop
+      }
+    }
   }`
 );
 
