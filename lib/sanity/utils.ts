@@ -9,9 +9,8 @@ import {
   type ImageUrlBuilder,
 } from "@sanity/image-url";
 
-// Sanity config - matches client.ts
-const projectId = process.env.SANITY_PROJECT_ID;
-const dataset = process.env.SANITY_DATASET;
+const projectId = "be2t44ka";
+const dataset = "production";
 
 /**
  * Converts Sanity image objects to optimized URLs
