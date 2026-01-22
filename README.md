@@ -1,14 +1,26 @@
 # Portfolio Website
 
-This is my newest portfolio website built with Next.js, featuring a blog powered by Sanity CMS. Hope you Enjoy it!
+This is my newest portfolio website built with Next.js, featuring a blog powered by Sanity CMS. Hope you enjoy it!
+
+## Content
+
+The portfolio includes:
+
+- **Home** - Hero section with introduction
+- **About** - Personal background and approach to development
+- **Skills** - Technical skills and technologies
+- **Projects** - Showcase of selected projects with descriptions and links
+- **Experience** - Professional work experience timeline
+- **Blog** - "Bahar's Notes" - A collection of learning journey notes and technical articles
+- **Contact** - Ways to get in touch
 
 ## Tech Stack
 
 - **Next.js 16** - React framework
 - **TypeScript** - Type safety
 - **Tailwind CSS** - Styling
-- **Sanity CMS** - Content management for blog
-- **Framer Motion** - Animations
+- **Sanity CMS** - Content management for blog posts
+- **Framer Motion** - Smooth animations
 
 ## Getting Started
 
@@ -26,41 +38,11 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000)
 
-## Sanity CMS
-
-The blog is managed through Sanity CMS. After schema changes, deploy to remote Studio:
-
-```bash
-pnpm cms:schema:deploy
-```
-
-Generate TypeScript types from schema:
-
-```bash
-pnpm cms:typegen:all
-```
-
 ## Project Structure
 
-```
-app/
-  ├── page.tsx          # Home page
-  └── blog/             # Blog pages
-components/              # React components
-cms/
-  └── schemaTypes/      # Sanity schema definitions
-lib/
-  └── sanity/           # Sanity client, queries, types
-```
-
-## Available Scripts
-
-- `pnpm dev` - Start development server
-- `pnpm build` - Build for production
-- `pnpm start` - Start production server
-- `pnpm lint` - Run ESLint
-- `pnpm format` - Format code with Prettier
-- `pnpm cms:schema:deploy` - Deploy Sanity schema changes
+- `app/` - Next.js pages and routes
+- `components/` - React components (sections, UI elements)
+- `lib/` - Utilities and helpers
 
 ## Color Palette
 
