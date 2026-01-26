@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import BlogListPage from "./blog-list-page";
 import type {
   BLOG_LIST_QUERY_RESULT,
@@ -7,6 +8,26 @@ import { BLOG_LIST_QUERY, CATEGORY_LIST_QUERY } from "@/lib/sanity/queries";
 import { client } from "@/lib/sanity/client";
 import { urlFor } from "@/lib/sanity/utils";
 import { Suspense } from "react";
+
+export const metadata: Metadata = {
+  title: "Bahar's Notes | Blog",
+  description:
+    "A collection of notes from my learning journey. I write about concepts I'm exploring, features I'm building, and moments where something finally clicks.",
+  keywords: [
+    "blog",
+    "software engineering",
+    "web development",
+    "programming",
+    "tech blog",
+    "learning",
+  ],
+  openGraph: {
+    title: "Bahar's Notes | Blog",
+    description:
+      "A collection of notes from my learning journey. I write about concepts I'm exploring, features I'm building, and moments where something finally clicks.",
+    type: "website",
+  },
+};
 
 export default async function BlogPage() {
   const options = { next: { revalidate: 60 } };
