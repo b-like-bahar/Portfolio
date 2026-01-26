@@ -110,7 +110,9 @@ export default function Projects() {
           <Heading2 className="section-title mb-4">Projects</Heading2>
           <Text variant="muted" size="lg">
             A selection of my more recent projects.{" "}
-            <Text as="span" className="md:hidden">Tap on each project to explore details,</span>
+            <Text as="span" className="md:hidden">
+              Tap on each project to explore details,
+            </Text>
             <Text as="span" className="hidden md:inline">
               Hover over each project to explore details,
             </Text>{" "}
