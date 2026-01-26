@@ -171,55 +171,65 @@ export default function Skills() {
             {icons.map((icon, index) => {
               const isLighting = allLighting || lightingIconIndex === index;
               return (
-                <Tooltip key={icon.name}>
-                  <TooltipTrigger asChild>
-                    <button
-                      className={`group relative w-16 h-16 md:w-19 md:h-19 rounded-lg border flex items-center justify-center transition-all duration-300 ${
-                        isLighting
-                          ? "border-[#8B8CF6] bg-[#1a1f2e]"
-                          : "border-[#111827] bg-[#111827] hover:border-[#8B8CF6] hover:bg-[#1a1f2e]"
-                      } focus:outline-none focus:ring-2 focus:ring-[#8B8CF6] focus:ring-offset-2 focus:ring-offset-[#0B0F14]`}
-                      style={{
-                        boxShadow: isLighting
-                          ? "0 0 20px rgba(139, 140, 246, 0.15)"
-                          : "0 0 0 0 rgba(139, 140, 246, 0)",
-                      }}
-                      onMouseEnter={(e) => {
-                        if (!isLighting) {
-                          e.currentTarget.style.boxShadow =
-                            "0 0 20px rgba(139, 140, 246, 0.15)";
-                        }
-                      }}
-                      onMouseLeave={(e) => {
-                        if (!isLighting) {
-                          e.currentTarget.style.boxShadow =
-                            "0 0 0 0 rgba(139, 140, 246, 0)";
-                        }
-                      }}
-                    >
-                      <Image
-                        src={icon.path}
-                        alt={icon.name}
-                        width={32}
-                        height={32}
-                        className={`w-8 h-8 object-contain transition-all duration-300 ${
+                <div key={icon.name} className="flex flex-col items-center">
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <button
+                        className={`group relative w-16 h-16 md:w-19 md:h-19 rounded-lg border flex items-center justify-center transition-all duration-300 ${
                           isLighting
-                            ? "brightness-0 invert sepia saturate-[10000%] hue-rotate-[240deg]"
-                            : "group-hover:brightness-0 group-hover:invert group-hover:sepia group-hover:saturate-[10000%] group-hover:hue-rotate-[240deg]"
-                        }`}
+                            ? "border-[#8B8CF6] bg-[#1a1f2e]"
+                            : "border-[#111827] bg-[#111827] hover:border-[#8B8CF6] hover:bg-[#1a1f2e]"
+                        } focus:outline-none focus:ring-2 focus:ring-[#8B8CF6] focus:ring-offset-2 focus:ring-offset-[#0B0F14]`}
                         style={{
-                          filter: isLighting
-                            ? "brightness(0) invert(1) sepia(100%) saturate(10000%) hue-rotate(240deg)"
-                            : "brightness(0) invert(1)",
+                          boxShadow: isLighting
+                            ? "0 0 20px rgba(139, 140, 246, 0.15)"
+                            : "0 0 0 0 rgba(139, 140, 246, 0)",
                         }}
-                        priority={false}
-                      />
-                    </button>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p className="text-lg">{icon.description}</p>
-                  </TooltipContent>
-                </Tooltip>
+                        onMouseEnter={(e) => {
+                          if (!isLighting) {
+                            e.currentTarget.style.boxShadow =
+                              "0 0 20px rgba(139, 140, 246, 0.15)";
+                          }
+                        }}
+                        onMouseLeave={(e) => {
+                          if (!isLighting) {
+                            e.currentTarget.style.boxShadow =
+                              "0 0 0 0 rgba(139, 140, 246, 0)";
+                          }
+                        }}
+                      >
+                        <Image
+                          src={icon.path}
+                          alt={icon.name}
+                          width={32}
+                          height={32}
+                          className={`w-8 h-8 object-contain transition-all duration-300 ${
+                            isLighting
+                              ? "brightness-0 invert sepia saturate-[10000%] hue-rotate-[240deg]"
+                              : "group-hover:brightness-0 group-hover:invert group-hover:sepia group-hover:saturate-[10000%] group-hover:hue-rotate-[240deg]"
+                          }`}
+                          style={{
+                            filter: isLighting
+                              ? "brightness(0) invert(1) sepia(100%) saturate(10000%) hue-rotate(240deg)"
+                              : "brightness(0) invert(1)",
+                          }}
+                          priority={false}
+                        />
+                      </button>
+                    </TooltipTrigger>
+                    <TooltipContent className="hidden md:block">
+                      <Text size="lg">{icon.description}</Text>
+                    </TooltipContent>
+                  </Tooltip>
+                  <Text
+                    as="span"
+                    size="sm"
+                    variant="muted"
+                    className="mt-2 text-center max-w-[80px] md:hidden"
+                  >
+                    {icon.name}
+                  </Text>
+                </div>
               );
             })}
           </div>
