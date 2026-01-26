@@ -165,19 +165,23 @@ export default function Skills() {
           </button>
         </div>
 
-        <TooltipProvider>
+        <TooltipProvider delayDuration={0} skipDelayDuration={0}>
           <div className="flex flex-wrap justify-center gap-5 md:gap-6 mx-10">
             {icons.map((icon, index) => {
               const isLighting = allLighting || lightingIconIndex === index;
               return (
-                <Tooltip key={icon.name}>
+                <Tooltip
+                  key={icon.name}
+                  delayDuration={0}
+                  disableHoverableContent
+                >
                   <TooltipTrigger asChild>
                     <button
                       className={`group relative w-16 h-16 md:w-19 md:h-19 rounded-lg border flex items-center justify-center transition-all duration-300 ${
                         isLighting
                           ? "border-[#8B8CF6] bg-[#1a1f2e]"
-                          : "border-[#111827] bg-[#111827] hover:border-[#8B8CF6] hover:bg-[#1a1f2e]"
-                      } focus:outline-none focus:ring-2 focus:ring-[#8B8CF6] focus:ring-offset-2 focus:ring-offset-[#0B0F14]`}
+                          : "border-[#111827] bg-[#111827] hover:border-[#8B8CF6] hover:bg-[#1a1f2e] active:border-[#8B8CF6] active:bg-[#1a1f2e]"
+                      } focus:outline-none focus:ring-2 focus:ring-[#8B8CF6] focus:ring-offset-2 focus:ring-offset-[#0B0F14] touch-manipulation`}
                       style={{
                         boxShadow: isLighting
                           ? "0 0 20px rgba(139, 140, 246, 0.15)"
@@ -193,6 +197,12 @@ export default function Skills() {
                         if (!isLighting) {
                           e.currentTarget.style.boxShadow =
                             "0 0 0 0 rgba(139, 140, 246, 0)";
+                        }
+                      }}
+                      onTouchStart={(e) => {
+                        if (!isLighting) {
+                          e.currentTarget.style.boxShadow =
+                            "0 0 20px rgba(139, 140, 246, 0.15)";
                         }
                       }}
                     >
@@ -215,8 +225,13 @@ export default function Skills() {
                       />
                     </button>
                   </TooltipTrigger>
-                  <TooltipContent>
-                    <p className="text-lg">{icon.description}</p>
+                  <TooltipContent
+                    side="top"
+                    sideOffset={8}
+                    onPointerDownOutside={(e) => e.preventDefault()}
+                    className="pointer-events-auto"
+                  >
+                    <p className="text-base md:text-lg">{icon.description}</p>
                   </TooltipContent>
                 </Tooltip>
               );
