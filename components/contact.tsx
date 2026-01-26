@@ -48,7 +48,8 @@ export default function Contact() {
       >
         <WavingCharacter className="h-32 w-32 md:h-40 md:w-40 text-[#8B8CF6] flex-shrink-0" />
         <Text variant="muted" size="lg" className="italic max-w-xs">
-          Hover me! I'll wave back 👋
+          <span className="md:hidden">Tap me! I'll wave back 👋</span>
+          <span className="hidden md:inline">Hover me! I'll wave back 👋</span>
         </Text>
       </motion.div>
 

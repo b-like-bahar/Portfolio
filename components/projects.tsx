@@ -109,7 +109,11 @@ export default function Projects() {
         >
           <Heading2 className="section-title mb-4">Projects</Heading2>
           <Text variant="muted" size="lg">
-            A selection of my more recent projects. Hover to explore details,
+            A selection of my more recent projects.{" "}
+            <span className="md:hidden">Tap to explore details,</span>
+            <span className="hidden md:inline">
+              Hover to explore details,
+            </span>{" "}
             tech stack, and live demos
           </Text>
         </motion.div>
