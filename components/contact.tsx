@@ -22,7 +22,7 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
         >
-          <Text variant="muted" className="mb-12">
+          <Text variant="muted" size="lg" className="mb-12">
             Interested in working together or just want to talk tech? Let's
             connect.
           </Text>
@@ -47,7 +47,7 @@ export default function Contact() {
         className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 mt-8 mb-8"
       >
         <WavingCharacter className="h-32 w-32 md:h-40 md:w-40 text-[#8B8CF6] flex-shrink-0" />
-        <Text variant="muted" className="italic max-w-xs">
+        <Text variant="muted" size="lg" className="italic max-w-xs">
           Hover me! I'll wave back 👋
         </Text>
       </motion.div>

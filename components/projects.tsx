@@ -108,7 +108,7 @@ export default function Projects() {
           className="mb-16"
         >
           <Heading2 className="section-title mb-4">Projects</Heading2>
-          <Text variant="muted">
+          <Text variant="muted" size="lg">
             A selection of my more recent projects. Hover to explore details,
             tech stack, and live demos
           </Text>

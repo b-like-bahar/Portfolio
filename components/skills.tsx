@@ -137,7 +137,7 @@ export default function Skills() {
       <div className="max-w-7xl mx-auto">
         <div className="mb-20">
           <Heading2 className="section-title mb-4">Skills</Heading2>
-          <Text variant="muted">
+          <Text variant="muted" size="lg">
             A snapshot of the technologies and tools I use to design, build,
             test, and ship production-ready web applications.
           </Text>
@@ -226,6 +226,7 @@ export default function Skills() {
 
         <Text
           variant="muted"
+          size="lg"
           className="text-center md:text-center lg:text-right mt-16 max-w-2xl mx-auto lg:ml-auto lg:mr-0 italic"
         >
           This stack continues to evolve through practice, curiosity, and

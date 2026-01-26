@@ -37,7 +37,7 @@ export default function Experience() {
           className="mb-16"
         >
           <Heading2 className="section-title mb-4">Experience</Heading2>
-          <Text variant="muted">
+          <Text variant="muted" size="lg">
             A journey through my professional growth, building products and
             solving problems across different teams and technologies.
           </Text>
