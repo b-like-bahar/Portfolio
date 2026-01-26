@@ -1,6 +1,9 @@
 import { client } from "@/lib/sanity/client";
 import { BLOG_POST_QUERY, BLOG_LIST_QUERY } from "@/lib/sanity/queries";
-import type { BLOG_POST_QUERY_RESULT, BLOG_LIST_QUERY_RESULT } from "@/lib/sanity/types";
+import type {
+  BLOG_POST_QUERY_RESULT,
+  BLOG_LIST_QUERY_RESULT,
+} from "@/lib/sanity/types";
 import { urlFor } from "@/lib/sanity/utils";
 import { notFound } from "next/navigation";
 import BlogPostClientPage from "./blog-post-page";
@@ -13,7 +16,7 @@ type BlogPost = NonNullable<BLOG_POST_QUERY_RESULT>;
 
 export async function generateStaticParams() {
   const posts = await client.fetch<BLOG_LIST_QUERY_RESULT>(BLOG_LIST_QUERY, {});
-  
+
   return posts
     .filter((post) => post.slug?.current)
     .map((post) => ({
