@@ -13,16 +13,10 @@ type ExperienceItem = {
 
 const experiences: ExperienceItem[] = [
   {
-    title: "Software Engineer | Deepflow Labs",
+    title: "Software Engineer I | Deepflow Labs",
     period: "Feb 2025 – Present · Remote",
     description:
       "Contributed to the development of a focus and productivity platform, working across both user-facing features and backend workflows with an emphasis on reliability and data correctness. I built core functionality such as configurable focus timers, scheduling, website blocking, and progress visualization, allowing users to track their productivity over time. I designed and implemented a timezone-aware daily reset system that snapshots user activity before resetting counters, preserving historical data for analytics while ensuring a clean start each day. I also added comprehensive end-to-end tests using Playwright to cover critical flows across the application, and collaborated closely with backend engineers to build scalable, cron-based systems.",
-  },
-  {
-    title: "Front-End Developer | TaifGostar",
-    period: "Sep 2021 – Sep 2024 · Remote",
-    description:
-      "Worked on a student-focused web platform, building and maintaining core UI features used across dashboards, registration flows, and performance views. I developed a reusable UI system using vanilla JavaScript, HTML, and SASS, and integrated REST APIs to display student progress and leaderboard data in real time. Alongside feature development, I contributed to debugging, cross-browser compatibility improvements, and code reviews to improve overall stability and quality. I also wrote internal documentation to support planning, onboarding, and clearer collaboration within the team.",
   },
 ];
 
