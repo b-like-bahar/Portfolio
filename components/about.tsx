@@ -6,9 +6,9 @@ import { Play, Check, RefreshCw } from "lucide-react";
 import { Heading2, Text } from "@/components/ui/typography";
 
 const paragraphs = [
-  "I'm a software engineer with a physics background, which explains my patience for complex problems and my low tolerance for vague bugs. I switched from research to web development because I like building systems people can interact with, not just simulate.",
-  "I work across the stack with TypeScript, React, Next.js, and Supabase, building features that span UI, data, and application logic. I care about how things behave in real usage: how state flows, how data is stored and queried, and how small decisions affect reliability over time.",
-  "I enjoy writing tests, keeping docs alive, and making small improvements that quietly make a product better. Curiosity keeps me moving forward, and I'm always learning what's next.",
+  "I’m a software engineer with a physics background. I’m patient with complex systems and allergic to vague bugs. I moved from research to web development because I enjoy shipping real products, not just running simulations.",
+  "I build web and mobile apps across the stack with TypeScript, React, React Native, Next.js, and Supabase, with a focus on correctness and reliability, especially around scheduling, time zones, data integrity, and testable workflows.",
+  "I care about clean abstractions, practical documentation, and shipping changes with confidence through strong validation and automated tests.",
 ];
 
 type ScanState = "idle" | "scanning" | "done" | "resetting";
