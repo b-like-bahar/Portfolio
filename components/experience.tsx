@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { FileText, ExternalLink } from "lucide-react";
-import Link from "next/link";
 import { Heading2, Heading3, Text } from "@/components/ui/typography";
 
 type ExperienceItem = {
@@ -16,7 +15,7 @@ const experiences: ExperienceItem[] = [
     title: "Software Engineer I | Deepflow Labs",
     period: "Feb 2025 – Present · Remote",
     description:
-      "Contributed to the development of a focus and productivity platform, working across both user-facing features and backend workflows with an emphasis on reliability and data correctness. I built core functionality such as configurable focus timers, scheduling, website blocking, and progress visualization, allowing users to track their productivity over time. I designed and implemented a timezone-aware daily reset system that snapshots user activity before resetting counters, preserving historical data for analytics while ensuring a clean start each day. I also added comprehensive end-to-end tests using Playwright to cover critical flows across the application, and collaborated closely with backend engineers to build scalable, cron-based systems.",
+      "At Deepflow Labs, I work as a Software Engineer building and shipping production features across a Next.js web app and a React Native iOS app. I’ve owned end-to-end systems that combine product UX with backend logic, including a timezone-aware daily reset pipeline that snapshots user progress before resetting at 4:00 AM local time, plus analytics charts powered by those snapshots. I’ve also improved reliability and release readiness by fixing real user edge cases—like supporting overnight scheduled sessions (11 PM–5 AM) and enforcing validation rules to prevent invalid schedules. To reduce debugging time, I instrumented PostHog client/server events and error tracking with Slack alerting, and I built Playwright E2E coverage for critical journeys. I was promoted from intern to Software Engineer I in about six months and have also mentored an intern through onboarding and PR reviews.",
   },
 ];
 
@@ -92,11 +91,11 @@ export default function Experience() {
           viewport={{ once: true }}
           className="mt-12 text-center"
         >
-          <Link
-            href="#"
+          <a
+            href="https://drive.google.com/file/d/1WZS-68HFYR1lHZFdVOJcL879lK_6z4Qu/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-[#9CA3AF] hover:text-[#8B8CF6] transition-colors duration-300 group"
+            className="inline-flex items-center gap-2 px-6 py-3 border-2 border-[#8B8CF6]/60 hover:border-[#8B8CF6] hover:bg-[#8B8CF6]/10 text-[#8B8CF6] font-semibold rounded-lg transition-all duration-300 group shadow-[0_0_15px_rgba(139,140,246,0.2)] hover:shadow-[0_0_25px_rgba(139,140,246,0.5)]"
           >
             <FileText size={20} className="group-hover:stroke-[#8B8CF6]" />
             <Text
@@ -110,7 +109,7 @@ export default function Experience() {
               size={16}
               className="group-hover:stroke-[#8B8CF6] opacity-70"
             />
-          </Link>
+          </a>
         </motion.div>
       </div>
     </section>
