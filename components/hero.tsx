@@ -78,10 +78,10 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <Text variant="muted" size="lg" className="mb-6 sm:mb-8 max-w-xl">
-              I design and build scalable web applications with a focus on
-              quality and usability. I care about clean abstractions,
-              maintainable systems, and writing code that's tested, documented,
-              and ready to ship.
+              I build web and mobile apps that feel fast and reliable, with
+              clean UX and solid engineering underneath. I focus on maintainable
+              TypeScript systems, thoughtful validation, and shipping code
+              that’s tested, documented, and production-ready.
             </Text>
           </motion.div>
           <div className="flex flex-col sm:flex-row gap-4 mb-8 sm:mb-12">
