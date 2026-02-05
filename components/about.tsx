@@ -6,7 +6,7 @@ import { Play, Check, RefreshCw } from "lucide-react";
 import { Heading2, Text } from "@/components/ui/typography";
 
 const paragraphs = [
-  "I’m a software engineer with a physics background. I’m patient with complex systems and allergic to vague bugs. I moved from research to web development because I enjoy shipping real products, not just running simulations.",
+  "I’m a software engineer with a physics background, which explains my patience for complex problems and my habit of interrogating vague bugs until they confess.",
   "I build web and mobile apps across the stack with TypeScript, React, React Native, Next.js, and Supabase, with a focus on correctness and reliability, especially around scheduling, time zones, data integrity, and testable workflows.",
   "I care about clean abstractions, practical documentation, and shipping changes with confidence through strong validation and automated tests.",
 ];
