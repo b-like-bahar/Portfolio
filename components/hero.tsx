@@ -84,37 +84,21 @@ export default function Hero() {
               that’s tested, documented, and production-ready.
             </Text>
           </motion.div>
-          <div className="flex flex-col sm:flex-row gap-4 mb-8 sm:mb-12">
-            <motion.button
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              onClick={handleContactClick}
-              className="px-6 sm:px-8 py-3 sm:py-4 bg-[#8B8CF6] hover:bg-[#A5B4FC] text-[#0B0F14] font-semibold rounded-lg transition-colors duration-300 text-lg"
-            >
-              Let's talk
-            </motion.button>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.45 }}
-            >
-              <a
-                href="https://drive.google.com/file/d/1WZS-68HFYR1lHZFdVOJcL879lK_6z4Qu/view?usp=sharing"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block px-6 sm:px-8 py-3 sm:py-4 border-2 border-[#8B8CF6]/60 hover:border-[#8B8CF6] hover:bg-[#8B8CF6]/10 text-[#8B8CF6] font-semibold rounded-lg transition-all duration-300 text-lg text-center shadow-[0_0_15px_rgba(139,140,246,0.2)] hover:shadow-[0_0_25px_rgba(139,140,246,0.5)]"
-              >
-                View Full Resume
-              </a>
-            </motion.div>
-          </div>
+          <motion.button
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            onClick={handleContactClick}
+            className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-[#8B8CF6] hover:bg-[#A5B4FC] text-[#0B0F14] font-semibold rounded-lg transition-colors duration-300 text-lg mb-8 sm:mb-12"
+          >
+            Let's talk
+          </motion.button>
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            <ContactOptions />
+            <ContactOptions showResume />
           </motion.div>
         </div>
       </div>
