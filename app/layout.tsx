@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Caveat, Inter } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 const caveat = Caveat({
   weight: ["400", "500", "600", "700"],
@@ -33,7 +34,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${caveat.variable} ${inter.variable}`}>
-      <body className={caveat.className}>{children}</body>
+      <body className={caveat.className}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
