@@ -98,7 +98,10 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            <ContactOptions showResume className="justify-center sm:justify-start" />
+            <ContactOptions
+              showResume
+              className="justify-center sm:justify-start"
+            />
           </motion.div>
         </div>
       </div>

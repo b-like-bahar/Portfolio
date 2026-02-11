@@ -99,7 +99,10 @@ export default function ContactOptions({
                 onMouseLeave={handleMouseLeave}
                 aria-label="Resume"
               >
-                <FileText size={20} className="transition-colors duration-300" />
+                <FileText
+                  size={20}
+                  className="transition-colors duration-300"
+                />
               </a>
             </TooltipTrigger>
             <TooltipContent>Resume</TooltipContent>
